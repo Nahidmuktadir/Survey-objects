@@ -1358,68 +1358,113 @@ function colringText(){
 colringText();/*Repeated work*/
 setInterval(colringText, 60000);
 
+
+/*=============Live tasks==========*/  
+const liveTaskMap = [
+  {
+    from: 19,
+    to: 21,
+    targets: ["valuedBonus"]
+  },
+  {
+    from: 16,
+    to: 18,
+    targets: ["qmee"]
+  },
+  {
+    from: 19,
+    to: 21,
+    targets: ["valuedBonus", "qmee"] // same time, multiple
+  }
+];
+
 function seeTask(e){
   e.stopPropagation();
   const hour = new Date().getHours();
-  const valuedBonus = document.getElementById('valuedBonus');
-  const qmeeBall = document.getElementById('qmee');
-  
-  if(hour>=19 && hour<21){
-    valuedBonus.scrollIntoView({
-    behavior: "smooth",
-    block: "center"
-    });
-    } else if(hour>=16 && hour<18){
-    qmeeBall.scrollIntoView({
-    behavior: "smooth",
-    block: "center"
-    });
-    }else{
-    document.getElementById("alertBoxTxt").textContent="❌ There is no Live task";
-    document.getElementById('alertBox').style.display="flex";
-    }
+
+  const match = liveTaskMap.find(t => hour >= t.from && hour < t.to);
+
+  if(!match){
+    document.getElementById("alertBoxTxt").textContent = "❌ There is no Live task";
+    document.getElementById("alertBox").style.display = "flex";
+    return;
   }
+
+  match.targets.forEach(id=>{
+    const el = document.getElementById(id);
+    if(el){
+      el.scrollIntoView({ behavior:"smooth", block:"center" });
+    }
+  });
+}
+  
+/*=============Notification on Email==========*/  
+  const timeBasedNotifications = [
+  {
+  from: 1,
+  to: 3,
+  items: [
+  { img: "AOC_icon.jpeg", text: "Check American Consumer Opinion on Email" },
+  { img: "paidView_icon.webp", text: "Check PaidViewPoint on Email" }
+  ]
+  },
+  {
+  from: 7,
+  to: 8,
+  items: [
+  { img: "paidView_icon.webp", text: "Check PaidViewPoint on Email" }
+  ]
+  },
+  {
+  from: 18,
+  to: 20,
+  items: [
+  { img: "AOC_icon.jpeg", text: "Check American Consumer Opinion on Email" },
+  { img: "paidView_icon.webp", text: "Check PaidViewPoint on Email" }
+  ]
+  },
+  {
+  from: 22,
+  to: 23,
+  items: [
+  { img: "paidView_icon.webp", text: "Check PaidViewPoint on Email" }
+  ]
+  }
+  ];
   
 function seeNotification(e){
   e.stopPropagation();
   const hour = new Date().getHours();
-  const icon = document.getElementById("alertIcon");
-  
-  if(hour>=1 && hour<3){
-    icon.src = "AOC_icon.jpeg";
-    icon.style.display = "block";
-    document.getElementById("alertBoxTxt").textContent="Check American Consumer Opinion on Email";
-    document.getElementById('alertBox').style.display="flex";
-    } else if(hour>=18 && hour<20){
-    icon.src = "AOC_icon.jpeg";
-    icon.style.display = "block";
-    document.getElementById("alertBoxTxt").textContent="Check American Consumer Opinion on Email";
-    document.getElementById('alertBox').style.display="flex";
-    } else if(hour>=7 && hour<8){
-    icon.src = "paidView_icon.webp";
-    icon.style.display = "block";
-    document.getElementById("alertBoxTxt").textContent="Check PaidViewPoint on Email";
-    document.getElementById('alertBox').style.display="flex";
-    }else if(hour>=19 && hour<20){
-    icon.src = "paidView_icon.webp";
-    icon.style.display = "block";
-    document.getElementById("alertBoxTxt").textContent="Check PaidViewPoint on Email";
-    document.getElementById('alertBox').style.display="flex";
-    }else if(hour>=1 && hour<2){
-    icon.src = "paidView_icon.webp";
-    icon.style.display = "block";
-    document.getElementById("alertBoxTxt").textContent="Check PaidViewPoint on Email";
-    document.getElementById('alertBox').style.display="flex";
-    }else if(hour>=22 && hour<23){
-    icon.src = "paidView_icon.webp";
-    icon.style.display = "block";
-    document.getElementById("alertBoxTxt").textContent="Check PaidViewPoint on Email";
-    document.getElementById('alertBox').style.display="flex";
-    }else{
-    document.getElementById("alertBoxTxt").textContent="🚫 No Notification";
-    document.getElementById('alertBox').style.display="flex";
-    }
+  const alertBox = document.getElementById("alertBox");
+  const textBox = document.getElementById("alertBoxTxt");
+
+  // Clear previous
+  textBox.innerHTML = "";
+  alertBox.querySelectorAll("img.dynamic-icon").forEach(i => i.remove());
+
+  const match = timeBasedNotifications.find(t => hour >= t.from && hour < t.to);
+
+  if(!match){
+    textBox.textContent = "🚫 No Notification";
+    alertBox.style.display = "flex";
+    return;
   }
+
+  match.items.forEach(item => {
+    const img = document.createElement("img");
+    img.src = item.img;
+    img.width = 40;
+    img.style.margin = "0 6px";
+    img.className = "dynamic-icon";
+    alertBox.insertBefore(img, textBox);
+
+    const p = document.createElement("div");
+    p.textContent = "• " + item.text;
+    textBox.appendChild(p);
+  });
+
+  alertBox.style.display = "flex";
+}
   
   document.addEventListener("click", function(e){
   const alertBox = document.getElementById("alertBox");
