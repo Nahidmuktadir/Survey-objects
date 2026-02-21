@@ -422,6 +422,7 @@
   padding:8px;
   font-size:16px;
   margin-bottom:6px;
+  resize:vertical;
   }
   
   .note-submit{
@@ -592,7 +593,22 @@
       <li><b>Baseball</b>- New York Yankees</li>
       <li><b>MLB</b>- Kansas city Royals</li>
       <li><b>MLB</b>- NY mets</li>
-      <li><b>MLB</b>- Ny Yankess</li>
+      <li><b>MLB</b>- NY Yankess</li>
+      <li><b>MLS</b>- NY City FC</li>
+      <li><b>MLS</b>- Chicago Fire FC</li>
+      <li><b>MLS</b>- Seattle Sounders FC</li>
+      <li><b>English Premier League</b>- Manchester City</li>
+      <li><b>English Premier League</b>- Chelsea</li>
+      <li><b>English Premier League</b>- Arsenal</li>
+      <li><b>NWSL</b>- Washington Spirit</li>
+      <li><b>NWSL</b>- Kansas City Current</li>
+      <li><b>NWSL</b>- Chicago Star FC</li>
+      <li><b>WNBA</b>- New York Liberty</li>
+      <li><b>WNBA</b>- Washington Mystics</li>
+      <li><b>WNBA</b>- Cunnecticut Sun</li>
+      <li><b>NASCAR</b>- NY Racing Team</li>
+      <li><b>NASCAR</b>- TMT Racing</li>
+      <li><b>NASCAR</b>- Trackhouse Racing</li>
     </ul>
     <div class="horizontal-roll"></div>
   </p>
@@ -1028,7 +1044,39 @@
   <img src="rewards1_icon.png", width="18px", height="18px" style="object-fit: cover; display: block;">
   </div>
   <div id="proggressLabel">
-  High pay Survey- <br>Five Surveys/ FreeCash/ GrabePoints/ <br>SurveyTime/ Rewards1/ Others
+  <b>High pay Survey</b>- <br>Five Surveys/ FreeCash/ GrabePoints/ <br>SurveyTime/ Rewards1/ Others
+  </div>
+  </div>
+  </div>
+  
+  <div class="progress-bar" id="shortSurvey">
+  <div class="step">
+  <div class="progress-ball" onclick="completeProgress(event)" id="shortSurveyBall">
+  </div>
+  <div class="photo-college1">
+  <img src="grabePoints.png", width="18px", height="18px" style="object-fit: cover; display: block;">
+  <img src="freeCash.jpeg", width="18px", height="18px" style="object-fit: cover; display: block;">
+  <img src="surveyTime.png", width="18px", height="18px" style="object-fit: cover; display: block;">
+  <img src="rewards1_icon.png", width="18px", height="18px" style="object-fit: cover; display: block;">
+  </div>
+  <div id="proggressLabel">
+  <b>Short Survey</b>- <br>Five Surveys/ FreeCash/ GrabePoints/ <br>SurveyTime/ Rewards1/ Others
+  </div>
+  </div>
+  </div>
+  
+  <div class="progress-bar" id="shortSurvey">
+  <div class="step">
+  <div class="progress-ball" onclick="completeProgress(event)" id="shortSurveyBall">
+  </div>
+  <div class="photo-college1">
+  <img src="grabePoints.png", width="18px", height="18px" style="object-fit: cover; display: block;">
+  <img src="freeCash.jpeg", width="18px", height="18px" style="object-fit: cover; display: block;">
+  <img src="surveyTime.png", width="18px", height="18px" style="object-fit: cover; display: block;">
+  <img src="rewards1_icon.png", width="18px", height="18px" style="object-fit: cover; display: block;">
+  </div>
+  <div id="proggressLabel">
+  <b>Zero Rating Survey</b>- <br>Five Surveys/ FreeCash/ GrabePoints/ <br>SurveyTime/ Rewards1/ Others
   </div>
   </div>
   </div>
@@ -1055,18 +1103,13 @@
   </div>
   </div>
   
-  <div class="progress-bar" id="shortSurvey">
+<div class="progress-bar">
   <div class="step">
-  <div class="progress-ball" onclick="completeProgress(event)" id="shortSurveyBall">
+  <div class="progress-ball" onclick="completeProgress(event)">
   </div>
-  <div class="photo-college1">
-  <img src="prime_opinion_icon.jpeg", width="18px", height="18px" style="object-fit: cover; display: block;">
-  <img src="cpx_icon.png", width="18px", height="18px" style="object-fit: cover; display: block;">
-  <img src="earnably_icon.jpg", width="18px", height="18px" style="object-fit: cover; display: block;">
-  <img src="timbucks_icon.jpeg", width="18px", height="18px" style="object-fit: cover; display: block;">
-  </div>
+  <img src="maximiles.png", width="40px", height="40px" style="margin:0 10px 0 5px;">
   <div id="proggressLabel">
-  Short Survey(Upto <b>3 minutes</b>)- Prime/<br>CPX/ Earnably /timebucks/ Others
+  Maximiles- <b>Main Survey</b>
   </div>
   </div>
   </div>
@@ -1269,7 +1312,7 @@ window.onload = function(){
   loadEarning();
 };
 
-//Notes Section Script
+/*==========Notes Section Script=============*/
 const addBtn = document.getElementById("addNoteBtn");
 const formContainer = document.getElementById("noteFormContainer");
 const noteList = document.getElementById("noteList");
@@ -1313,7 +1356,7 @@ addBtn.onclick = ()=>showForm();
 function showForm(value=""){
   formContainer.innerHTML = `
     <div class="note-form">
-      <input type="text" id="noteInput" class="note-input" placeholder="Write note..." value="${value}">
+      <textarea id="noteInput" class="note-input" placeholder="Write note..." rows="4">${value}</textarea>
       <button class="note-submit" onclick="submitNote()">Submit</button>
     </div>
   `;
