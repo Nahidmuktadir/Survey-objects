@@ -505,6 +505,99 @@
   padding: 15px;
   border-radius: 8px;
   }
+  
+  /*=====Leading Time Calculation====*/
+  .leading-input{
+  border:1px solid orange;
+  border-radius:12px;
+  margin:10px 0;
+  padding:15px;
+  width:250px;
+  font-size:16px;
+  }
+  
+  button{
+  padding:10px 18px;
+  margin:5px;
+  font-size:16px;
+  cursor:pointer;
+  border:none;
+  border-radius:10px;
+  }
+  
+  #setBtn{
+  background:orange;
+  color:white;
+  }
+  
+  #resetBtn{
+  background:red;
+  color:white;
+  }
+  
+  #addBtn{
+  background:green;
+  color:white;
+  }
+  
+  #status{
+  margin-top:20px;
+  padding:15px;
+  border-radius:12px;
+  font-size:18px;
+  font-weight:bold;
+  background:#f5f5f5;
+  width:300px;
+  }
+  
+  .red{
+  color:red;
+  }
+  
+  .green{
+  color:green;
+  }
+  
+  
+  /*=========Toggle Scroll Button=======*/
+  #toggleScrollBtn{
+  display:none;
+  position:fixed;
+  right:20px;
+  bottom:10%;
+  z-index:10;
+  width:50px;
+  height:50px;
+  background-color:#EBEBEB;
+  border-radius:50%;
+  box-shadow:1px 1px 2px gray;
+  transition:all 0.3s;
+  cursor:pointer;
+  }
+  
+  #toggleScrollBtn2{
+  display:none;
+  position:fixed;
+  right:20px;
+  bottom:10%;
+  z-index:10;
+  width:50px;
+  height:50px;
+  background-color:#EBEBEB;
+  border-radius:50%;
+  box-shadow:1px 1px 2px gray;
+  transition:all 0.3s;
+  cursor:pointer;
+  }
+  
+  .toggleScrollBtnFlex{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  }
 </style>
 </head>
 <body>
@@ -1212,16 +1305,19 @@
   <div id="myself" class="contentDetails cd-1">
   <h2 style="text-align:center;">Meetings</h2>
   <div class="horizontal-roll" style="margin-bottom:40px;"></div>
-  <pre>Morning, Shift [ 12-1;1hr]
+  <pre style="font-family:arial;">
+  <div style="border:1px solid orange; border-radius:18px;">
+  Morning, Shift [ 12-1;1hr]
   <hr>
   1. Qmee
   2. valued/opinion/Survey 
      Junkie/Paidview/
      American/ePoll
+  </div>
   
   
- Evening shift [2:30-7;
- 4.5hrs]
+ <div style="border:1px solid green; border-radius:18px;">
+ Evening shift [2:30-7; 4.5hrs]
   <hr>
   1. Qmee
   2. Grab Points
@@ -1230,16 +1326,18 @@
   4. Upromise
   5. Five Survey/prime
   6. Free Cash
+  </div>
   
   
-  Night Shift [8:30-3;
-  6.5hrs]
+  <div style="border:1px solid black; border-radius:18px;">
+  Night Shift [8:30-3; 6.5hrs]
   <hr>
   1. Valued (Bonus)
   2. Qmee
   3. GrabPoints
   4. Five
-  5. Rewards 1/Others.</pre>
+  5. Rewards 1/Others.
+  </pre>
   </div>
   
   <!--========Scretchbook=============-->
@@ -1264,6 +1362,27 @@
   
   <div id="result" style="height:auto; margin:20px 3px 80px 3px; background-color:powderblue;"></div>
   
+  
+  <!--======Leading Time Calculation=====-->
+  <div style="background-color:lavender; padding:10px; border-radius:18px;">
+    <h2>Leading Time Tracker</h2>
+    
+    <input id="leadingRange" type="number" class="leading-input" placeholder="Set Leading Time Limit (Minute)">
+    <br>
+    
+    <button id="setBtn" type="button">Set</button>
+    <button id="resetBtn" type="button">Reset</button>
+    
+    <br><br>
+    
+    <input id="addingLeadTime" type="number" class="leading-input" placeholder="Add Leading Time">
+    <br>
+    
+    <button id="addBtn" type="button">Add Time</button>
+    
+    <div id="status"></div>
+  </div>
+  
 </div> <!--Second part End-->
 
 <!--All task complete Animation-->
@@ -1272,6 +1391,15 @@
   <p class="complete-text">All Task Done</p>
 </div>
 
+
+<!--=======Toggle Scroll Button=======-->
+<div id="toggleScrollBtn" onclick="toggleScroll()">
+    <div class="toggleScrollBtnFlex"><svg xmlns="http://www.w3.org/2000/svg" height="30" width="20" viewBox="0 0 384 512"><path fill="#74C0FC" d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg></div>
+</div>
+
+<div id="toggleScrollBtn2" onclick="toggleScroll2()">
+    <div class="toggleScrollBtnFlex"><svg xmlns="http://www.w3.org/2000/svg" height="30" width="20" viewBox="0 0 384 512"><path fill="#74C0FC" d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg></div>
+</div>
 
 
 <script>
@@ -1693,6 +1821,151 @@ function seeNotification(e){
   }
   
   document.getElementById("result").innerText = result;
+  }
+  
+  
+  
+  //=======******Leading Time Calculation******===========
+  // load saved data
+  let leadingLimit = Number(localStorage.getItem("leadingLimit")) || 0;
+  let addedTime = Number(localStorage.getItem("addedTime")) || 0;
+  
+  // show saved limit in input
+  document.getElementById("leadingRange").value =
+  leadingLimit ? leadingLimit : "";
+  
+  // update status on load
+  updateStatus();
+  
+  
+  // SET BUTTON
+  document.getElementById("setBtn").addEventListener("click", function(){
+  
+  leadingLimit = Number(document.getElementById("leadingRange").value);
+  
+  localStorage.setItem("leadingLimit", leadingLimit);
+  
+  updateStatus();
+  
+  });
+  
+  
+  // ADD TIME BUTTON
+  document.getElementById("addBtn").addEventListener("click", function(){
+  
+  let newTime = Number(document.getElementById("addingLeadTime").value);
+  
+  if(!isNaN(newTime) && newTime > 0){
+  
+  // previous added time + new added time
+  addedTime += newTime;
+  
+  localStorage.setItem("addedTime", addedTime);
+  
+  document.getElementById("addingLeadTime").value = "";
+  
+  updateStatus();
+  
+  }
+  
+  });
+  
+  
+  // RESET BUTTON
+  document.getElementById("resetBtn").addEventListener("click", function(){
+  
+  localStorage.removeItem("leadingLimit");
+  localStorage.removeItem("addedTime");
+  
+  leadingLimit = 0;
+  addedTime = 0;
+  
+  document.getElementById("leadingRange").value = "";
+  document.getElementById("addingLeadTime").value = "";
+  
+  updateStatus();
+  
+  });
+  
+  
+  // UPDATE STATUS FUNCTION
+  function updateStatus(){
+  
+  let status = document.getElementById("status");
+  
+  if(leadingLimit <= 0){
+  
+  status.innerHTML = "Please Set Leading Time Limit";
+  status.className = "";
+  
+  return;
+  
+  }
+  
+  let remaining = leadingLimit - addedTime;
+  
+  if(remaining < 0){
+  
+  status.innerHTML = `
+  <span class="red">
+  ⚠ Time Exceeded by ${Math.abs(remaining)} Minute
+  <br><br>
+  Leading Limit = ${leadingLimit} Minute
+  <br>
+  Total Added = ${addedTime} Minute
+  </span>
+  `;
+  
+  }else{
+  
+  status.innerHTML = `
+  <span class="green">
+  ${remaining} Minute Remaining
+  <br><br>
+  Leading Limit = ${leadingLimit} Minute
+  <br>
+  Total Added = ${addedTime} Minute
+  </span>
+  `;
+  
+  }
+  
+  }
+  
+  
+  
+  //======Toggle Scroll Button=====
+  let toggleScrollBtn=document.getElementById('toggleScrollBtn');
+  let toggleScrollBtn2=document.getElementById('toggleScrollBtn2');
+  
+  window.onscroll=function (){
+  let halfMiddleScreen=document.documentElement.scrollHeight*49/100;
+  if(window.scrollY<=halfMiddleScreen){
+  toggleScrollBtn.style.display="block";
+  }else{
+  toggleScrollBtn.style.display="none";
+  }
+  }
+  
+  function toggleScroll(){
+  if(window.scrollY<=document.documentElement.scrollHeight*50/100){
+  window.scrollTo({top:document.documentElement.scrollHeight*94/100, behavior:"smooth"});
+  }
+  }
+  
+  window.addEventListener("scroll",function (){
+  let secondHalfMiddleScreen=document.documentElement.scrollHeight*46/100;
+  if(window.scrollY>=secondHalfMiddleScreen){
+  toggleScrollBtn2.style.display="block";
+  }else{
+  toggleScrollBtn2.style.display="none";
+  }
+  });
+  
+  function toggleScroll2(){
+  if(window.scrollY>=document.documentElement.scrollHeight*46/100){
+  window.scrollTo({top:0, behavior:"smooth"});
+  }
   }
 </script>
 </body>
