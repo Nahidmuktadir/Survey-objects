@@ -492,9 +492,11 @@
   }
   
   .earn-calculate {
+  margin-left:34%;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  color:orange;
   }
   
   #result {
@@ -598,6 +600,74 @@
   height:50px;
   border-radius:50%;
   }
+  
+  #searchEngineBox{
+  margin:20px 10px;
+  padding:18px;
+  border:2px solid #4400FF;
+  border-radius:14px;
+  background:#eef2ff;
+  }
+  
+  #siteSearchInput{
+  width:60%;
+  padding:10px;
+  font-size:16px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  margin-right:8px;
+  }
+  
+  #searchEngineBox button{
+  padding:10px 18px;
+  font-size:15px;
+  cursor:pointer;
+  border:none;
+  border-radius:8px;
+  background:#4400FF;
+  color:white;
+  margin-right:5px;
+  }
+  
+  #searchResultCount{
+  margin-top:12px;
+  font-weight:bold;
+  }
+  
+  .search-highlight{
+  background-color:yellow;
+  font-weight:bold;
+  border-radius:3px;
+  padding:0 2px;
+  }
+  
+  #suggestNoteSection{
+  margin:20px 10px;
+  padding:18px;
+  border:2px solid gold;
+  border-radius:14px;
+  background:#fff8dc;
+  }
+  
+  .suggest-note-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px;
+  border-bottom:1px solid #eee;
+  }
+  
+  .suggest-note-item button{
+  cursor:pointer;
+  border:none;
+  background:transparent;
+  font-size:16px;
+  }
+  
+  .search-highlight.active-highlight{
+  background-color:#FF8C00;
+  color:white;
+  }
 </style>
 </head>
 <body>
@@ -617,6 +687,23 @@
 </div>
 
 <p><small>Switch to To-Do List</small></p>
+</div>
+
+<!--=============Search Engine============-->
+<div id="searchEngineBox">
+  <h3>🔍 Search Website</h3>
+  <input type="text" id="siteSearchInput" placeholder="Search anything...">
+  <button onclick="performSiteSearch()">Search</button>
+  <button onclick="goToNextMatch()">Next ▶</button>
+  <button onclick="clearSiteSearch()">Clear</button>
+  <p id="searchResultCount"></p>
+</div>
+
+<!--=============Suggested Notes (নতুন শব্দ ভান্ডার)============-->
+<div id="suggestNoteSection">
+  <h3>📝 Suggested Notes</h3>
+  <small>এগুলো এমন শব্দ যা তুমি search করেছো কিন্তু আগে কখনো করোনি</small>
+  <div id="suggestNoteList"></div>
 </div>
 
 <!--=============Content LIST============-->
@@ -1407,18 +1494,20 @@
   <img src="Avarage_each_visit_time.jpg" width="90%" height="120px">
   </div>
   
-  <!--Daily Earning calculator: Survey wise-->
-  <h2>Survey Income Calculator</h2>
+  <!--======Daily Earning calculator: Survey wise=====-->
+  <div id="daily_earn_calc" class="contentDetails cd-3">
+  <h2 style="text-align:center;">Survey Income Calculator</h2>
   
-  <textarea id="input1" class="text-box" placeholder="Paste First Amount List..." style="margin-left:30%; border:4px; border-style:solid dashed;"></textarea>
-  <textarea id="input2" class="text-box" placeholder="Paste Second Amount List..." style="margin-left:30%; border:4px; border-style:solid dashed;"></textarea>
+  <textarea id="input1" class="text-box" placeholder="Paste First Amount List..." style="margin-left:27%; border:4px; border-style:solid dashed;"></textarea>
+  <textarea id="input2" class="text-box" placeholder="Paste Second Amount List..." style="margin-left:27%; border:4px; border-style:solid dashed;"></textarea>
   <br>
   <button class="earn-calculate" onclick="calculateIncome()">Calculate</button>
   
-  <div id="result" style="height:auto; margin:20px 3px 80px 3px; background-color:powderblue;"></div>
+  <div id="result" style="height:210px; width:90%; margin:20px 3px 80px 3px; background-color:powderblue;"></div>
+  </div>
   
   <!--======Leading Time Calculation=====-->
-  <div style="background-color:lavender; padding:10px; border-radius:18px;">
+  <div style="background-color:lavender; padding:10px; border-radius:18px; margin-top:20px;">
     <h2>Leading Time Tracker</h2>
     
     <input id="leadingRange" type="number" class="leading-input" placeholder="Set Leading Time Limit (Minute)">
@@ -2021,6 +2110,197 @@ function seeNotification(e){
   window.scrollTo({top:0, behavior:"smooth"});
   }
   }
+  
+  /* ================= SEARCH ENGINE ================= */
+  
+  function getKnownWords(){
+  return JSON.parse(localStorage.getItem("knownSearchWords")) || [];
+  }
+  
+  function saveKnownWord(word){
+  let known = getKnownWords();
+  if(!known.map(w => w.toLowerCase()).includes(word.toLowerCase())){
+  known.push(word);
+  localStorage.setItem("knownSearchWords", JSON.stringify(known));
+  }
+  }
+  
+  function getSuggestNotes(){
+  return JSON.parse(localStorage.getItem("suggestNotes")) || [];
+  }
+  
+  function saveSuggestNote(word){
+  let suggestions = getSuggestNotes();
+  if(!suggestions.map(w => w.toLowerCase()).includes(word.toLowerCase())){
+  suggestions.push(word);
+  localStorage.setItem("suggestNotes", JSON.stringify(suggestions));
+  renderSuggestNotes();
+  }
+  }
+  
+  function removeSuggestNote(index){
+  let suggestions = getSuggestNotes();
+  suggestions.splice(index, 1);
+  localStorage.setItem("suggestNotes", JSON.stringify(suggestions));
+  renderSuggestNotes();
+  }
+  
+  function renderSuggestNotes(){
+  const list = document.getElementById("suggestNoteList");
+  if(!list) return;
+  const suggestions = getSuggestNotes();
+  
+  if(suggestions.length === 0){
+  list.innerHTML = "<p style='color:gray;'>No suggested words yet.</p>";
+  return;
+  }
+  
+  list.innerHTML = suggestions.map((w, i) =>
+  `<div class="suggest-note-item">
+  <span>${w}</span>
+  <button onclick="removeSuggestNote(${i})">❌</button>
+  </div>`
+  ).join("");
+  }
+  
+  /* ---- Search & Highlight Logic ---- */
+  let searchHighlightNodes = [];
+  let currentMatchIndex = -1; // কোন match এ আছি এখন তার track রাখার জন্য
+  
+  function clearHighlights(){
+  searchHighlightNodes.forEach(span => {
+  const parent = span.parentNode;
+  if(parent){
+  parent.replaceChild(document.createTextNode(span.textContent), span);
+  parent.normalize();
+  }
+  });
+  searchHighlightNodes = [];
+  currentMatchIndex = -1;
+  }
+  
+  function performSiteSearch(){
+  clearHighlights();
+  
+  const input = document.getElementById("siteSearchInput");
+  const keyword = input.value.trim();
+  const resultCount = document.getElementById("searchResultCount");
+  
+  if(!keyword){
+  resultCount.textContent = "";
+  return;
+  }
+  
+  const excludeIds = ["searchEngineBox", "suggestNoteSection"];
+  
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+  acceptNode: function(node){
+  let parent = node.parentElement;
+  while(parent){
+  if(excludeIds.includes(parent.id) || parent.tagName === "SCRIPT" || parent.tagName === "STYLE"){
+  return NodeFilter.FILTER_REJECT;
+  }
+  parent = parent.parentElement;
+  }
+  return NodeFilter.FILTER_ACCEPT;
+  }
+  });
+  
+  let matchCount = 0;
+  let textNodes = [];
+  let node;
+  while(node = walker.nextNode()){
+  textNodes.push(node);
+  }
+  
+  const escaped = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const regex = new RegExp(escaped, "gi");
+  
+  textNodes.forEach(textNode => {
+  const text = textNode.textContent;
+  regex.lastIndex = 0;
+  const matches = text.match(regex);
+  
+  if(matches){
+  matchCount += matches.length;
+  
+  const fragment = document.createDocumentFragment();
+  let lastIndex = 0;
+  let m;
+  regex.lastIndex = 0;
+  
+  while(m = regex.exec(text)){
+  fragment.appendChild(document.createTextNode(text.slice(lastIndex, m.index)));
+  const span = document.createElement("span");
+  span.className = "search-highlight";
+  span.textContent = m[0];
+  fragment.appendChild(span);
+  searchHighlightNodes.push(span);
+  lastIndex = m.index + m[0].length;
+  }
+  
+  fragment.appendChild(document.createTextNode(text.slice(lastIndex)));
+  textNode.parentNode.replaceChild(fragment, textNode);
+  }
+  });
+  
+  if(matchCount > 0){
+  currentMatchIndex = 0;
+  updateActiveHighlight();
+  resultCount.textContent = `✅ ১ / ${matchCount} — "${keyword}" এর জন্য মোট ${matchCount} টি result`;
+  } else {
+  resultCount.textContent = `❌ "${keyword}" এর জন্য কোনো result পাওয়া যায়নি`;
+  }
+  
+  // নতুন শব্দ হলে Suggest Note এ যোগ করা
+  const known = getKnownWords();
+  const isKnown = known.map(w => w.toLowerCase()).includes(keyword.toLowerCase());
+  
+  if(!isKnown){
+  saveKnownWord(keyword);
+  saveSuggestNote(keyword);
+  }
+  }
+  
+  /* ---- Next বাটনের Logic ---- */
+  function updateActiveHighlight(){
+  // আগের active বাদ দেওয়া
+  searchHighlightNodes.forEach(span => span.classList.remove("active-highlight"));
+  
+  if(currentMatchIndex < 0 || searchHighlightNodes.length === 0) return;
+  
+  const activeSpan = searchHighlightNodes[currentMatchIndex];
+  activeSpan.classList.add("active-highlight");
+  activeSpan.scrollIntoView({behavior:"smooth", block:"center"});
+  
+  const keyword = document.getElementById("siteSearchInput").value.trim();
+  document.getElementById("searchResultCount").textContent =
+  `✅ ${currentMatchIndex + 1} / ${searchHighlightNodes.length} — "${keyword}" এর জন্য মোট ${searchHighlightNodes.length} টি result`;
+  }
+  
+  function goToNextMatch(){
+  if(searchHighlightNodes.length === 0) return;
+  
+  currentMatchIndex++;
+  if(currentMatchIndex >= searchHighlightNodes.length){
+  currentMatchIndex = 0; // শেষ হলে আবার প্রথম থেকে শুরু (wrap around)
+  }
+  updateActiveHighlight();
+  }
+  
+  function clearSiteSearch(){
+  clearHighlights();
+  document.getElementById("siteSearchInput").value = "";
+  document.getElementById("searchResultCount").textContent = "";
+  }
+  
+  document.getElementById("siteSearchInput")?.addEventListener("keypress", function(e){
+  if(e.key === "Enter"){
+  performSiteSearch();
+  }
+  });
+  
+  window.addEventListener("DOMContentLoaded", renderSuggestNotes);
 </script>
 </body>
 </html>
