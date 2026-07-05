@@ -1,1 +1,261 @@
-Sample text
+ABOUT ME
+Date of birth: 4/19/2000
+
+Gender: Male
+
+Address: 11434 116th Avenue,Jamaica, Queens, New York City, New York.
+
+Education level
+Graduated 4 year college/University
+
+ACCURATE MATCHING:
+In politics today, do you consider yourself a Democrat, Republican, or Independent? :Republican
+
+Which of the following religions do you most closely identify with?
+: Islam
+
+In terms of your political views, do you consider yourself..
+: Slightly conservative
+
+How did you vote in the 2024 presidential election?
+: Republican -T-r-u-m-p/V-a-n-c-e
+
+Which ONE statement BEST describes your ideas, beliefs, and values about how society should function?
+: I believe in traditional values, limited government intervention in the economy, and
+strong national defense
+
+Select all of the options that describe your current political views or related actions
+within the past year.
+: I strongly consider climate change and conservation when choosing a candidate.
+
+: My vote is primarily driven by issues like inflation, housing affordability, and the cost
+of living
+
+Living situation
+: Homeowner
+
+Household income
+: $75,000 to $79,999
+
+What are your household investable assets (not including homeownership)?
+: Less than $25,000
+
+Which of the following pets are present in your household?
+:Cat(s),
+|Dog(s),
+Fish,
+Bird(s)
+
+Which of the following financial products do you own?
+:Card account,
+Life/Health insurance,
+Certificate of deposit/GIC (US/CA Only),
+Mutual funds,
+Online only current account,
+Retirement saving plan/Private pension,
+Credit Card,
+Checking account,
+Deposit account,
+Current account,
+Savings account
+
+In your household, which of the following things are you responsible or partially responsible
+for making decisions about?
+: Internet,
+Television,
+Banking,
+Grocery Shopping,
+Automobile,
+Finance,
+Mortgage,
+Clothing
+
+1 Personal Income
+: $75,000-$79,999
+
+Job title
+: Administrative (Clerical or Support Staff)
+
+Employment status
+: Employed
+
+Employment contract
+: Employed full-time
+
+Company employee range
+: 5000 or more
+
+Company industry
+: Food/Beverage
+
+Company revenue range
+: $1 Billion or more
+
+Company department
+:Administration/General Staff
+
+Please choose which departments/products you have influence or decision making
+authority on spending/purchasing?
+: Food services
+
+What are your hobbies and interests?
+:Hunting/Fishing,
+Arts and crafts,
+Interior decorating/Renovating,
+Participating in athletics,
+Motor caravaning,
+Playing musio,
+Playing video/computer games,
+Reading,
+Skiing,
+Trave,
+Technology/Computers
+
+What sports do you regularly participate in?
+
+:Golf,
+Hiking
+Hunting,
+Rock Climbing,
+Badminton,
+Skiing -cross country,
+Soccer,
+Swimming,
+Billiards/Snooker/Pool
+
+How many hours a week do you exercise/participate in sports?
+:5 to 6 hours per week
+
+On average, how many hours of television do you watch per week?
+:More than 20 hours
+
+On average, how many hours of radio do you listen to per week?
+: 6 to 10 hours
+
+6 What kind of gambling do you participate in?
+Online sports betting, Car Race, Betting,
+Online lottery/scratchcard,
+Online poker/casino gaming Offline, sports betting,
+Bingo,
+Casino Slot Machines,
+Casino poker/BlackJack/Roulette/etc,
+Offline lottery/scratchcard,
+Other
+
+Which types of publications do you read?
+:Daily financial nenewspaper,
+Evening newspaper,
+-Morning newspaper,
+Free newspapers (e.g. Metro),
+Newspaper inserts (e.g.TV guide),
+House & Gardening magazines,
+Music magazines,
+Technology magazines
+
+Do you smoke?
+:Yes,I smoke
+
+On average, how many cigarettes do you smoke in a day?
+:1 to 3 cigarettes
+
+Have you tried to quit smoking using any of these products/methods?
+:Nicotine gum,
+Nicotine Patch
+
+Do you use glasses or contact lenses?
+:Both Glasses and Contact lenses
+
+Do you use a hearing aid?
+:NO
+
+Have you been diagnosed with any of the following illnesses/conditions?
+:High Cholesterol,
+Depression,
+Hypertension
+
+Has anyone apart from you in your household been diagnosed with any of the following
+illnesses/conditions?
+:Acne,
+High Cholesterol,
+Depression,
+Hypertension,
+Anxiety
+
+Have you, or someone for whom you provide care, been diagnosed with any of the following
+ailments or medical conditions?
+:Allergy / Asthma / Respiratory
+Diabetes /Thyroid / Obesity
+Dental,
+Skin / Dermatologic,
+Neurologic / Nervous (e.g. Migraines, MS, Stroke)
+
+Have you, or someone for whom you provide care, been diagnosed with any of the
+following medical conditions related to Neurologic /Nervous (e.g. Migraines, MS,
+Stroke)?
+:Parkinson's Disease
+
+Have you, or someone for whom you provide care, been diagnosed with any of the
+following medical conditions related to Diabetes /Thyroid / Obesity?
+:Obesity,
+Type 2 Diabetes
+
+Have you, or someone for whom you provide care, been diagnosed with any of the
+following medical conditions related to Allergy /Asthma / Respiratory?
+:Allergies
+
+Have you, or someone for whom you provide care, been diagnosed with any of the following medical conditions related to Dental?
+:Gum (Periodontal) Disease,
+Tooth Sensitivity
+
+Have you, or someone for whom you provide care, been diagnosed with any of the following medical conditions related to Skin / Dermatologic?
+:Acne
+
+Do you own a smart phone personal or Official?
+:Yes, for both
+
+Which of these is your carrier for your primary mobile / cell phone?
+:Other
+
+Which of the following electronic products do you own?
+:Blu-ray/DVD player,
+PC laptop or portable,
+Cell Phone,
+Scanner,
+Projector,
+Cable TV/Satellite TV,
+Digital TV receiver,
+Printer-Laser,
+Printer - Inkjet Printer - Photo,
+Flat Screen TV
+
+Would you consider yourself to be an early adopter of new technology (the first to buy new gadgets/electronics/etc)?
+: Yes
+
+Which of the following is your primary home internet service provider?
+:Charter
+
+What kind of internet connection(s) do you use at home?
+:Broadband/Fibre,
+Wireless
+
+How often do you go online on a computer (desktop, laptop, netbook, or tablet)? This includes
+access to the Internet from home, work, or elsewhere (including weekdays and weekends).
+Several times a day
+Which of the following social media platforms do you use or actively participate in?
+:Facebook
+Google+,
+Twitter,
+Pinterest,
+Instagram,
+Snap (chat),
+Linkedln,
+Tumblr,
+YouTube,
+Whatsapp
+
+About how often do you access social media services (Facebook, Twitter, Instagram,
+Pinterest, YouTube, etc.)?
+:Several times a day
+
+What type of mobile phone plan do you have?
+:Pre-paid
