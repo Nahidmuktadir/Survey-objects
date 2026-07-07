@@ -342,7 +342,9 @@ South America - Brazil,
 Central America,
 South East Asia (e.g. Thailand, Malaysia),
 East European countries (not Russia),
-Germany/Austria/SwitzerlandItalyTUK/lreland,
+Germany/Austria,
+/SwitzerlandItalyTUK/
+lreland,
 Spain/Portugal,
 Middle East
 Which of these hotels have you stayed at during the last 12 months?
