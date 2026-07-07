@@ -15,7 +15,8 @@ In politics today, do you consider yourself a Democrat, Republican, or Independe
 Which of the following religions do you most closely identify with?
 : Islam
 
-In terms of your political views, do you consider yourself..
+In terms of your political views, 
+do you consider yourself..
 : Slightly conservative
 
 How did you vote in the 2024 presidential election?
@@ -224,7 +225,7 @@ Printer-Laser,
 Printer - Inkjet Printer - Photo,
 Flat Screen TV
 
-Would you consider yourself to be an early adopter of new technology (the first to buy new gadgets/electronics/etc)?
+Would you consider yourself to be an early adopter of new technology (the first to buy new gadgets/ electronics/etc)?
 : Yes
 
 Which of the following is your primary home internet service provider?
@@ -295,7 +296,7 @@ What kind(s) of video/computer games do you play?
 Massively Multiplayer Online/MMO (e.g. Warcraft),
 Flight Simulation (e.g. MS Flight Simulator)
 
-On average, how many computer/ideo games a month do you purchase?
+On average, how many computer/ ideo games a month do you purchase?
 :3 to 5 games
 
 
@@ -342,9 +343,9 @@ South America - Brazil,
 Central America,
 South East Asia (e.g. Thailand, Malaysia),
 East European countries (not Russia),
-Germany/Austria,
-/SwitzerlandItalyTUK/
-lreland,
+Germany/Austria
+/SwitzerlandItaly,
+TUK/lreland,
 Spain/Portugal,
 Middle East
 Which of these hotels have you stayed at during the last 12 months?
