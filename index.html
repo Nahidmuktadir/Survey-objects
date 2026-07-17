@@ -882,6 +882,13 @@
     <div class="horizontal-roll"></div>
   </p>
   <pre style="font-family:arial;">
+ 
+ 
+    ⭕ Are you a fan of sports? If so, how do you engage?
+    
+    *Watch live sports on TV
+    *Follow teams on news/social media
+    *Attend games in person
     1️⃣ American Football (NFL) — আমেরিকার নাম্বার ওয়ান খেলাধুলা
     
     League: NFL (National Football League)
@@ -1467,6 +1474,24 @@
   ⭕ And which one brand of Body Wash have I purchased most often in the past 6 months?
   
   *Old Spice
+  
+  ⭕ Please indicate which of the following brands of shampoo or conditioners, if
+  any, you have used in the past 12 months?
+  
+  *Aveeno
+  *Cerave
+  *Dove/Dove Men
+  *Garnier Fructis
+  *Head & Shoulders
+  *Herbal Essences
+  *L'Oreal
+  *Old Spice
+  *Suave
+  
+  ⭕ Which one brand of hand dish soap have you used most often in the past 6
+  months?
+  
+  *Method
   </pre>
   </div>
   
@@ -1655,7 +1680,7 @@
   <!--==============Q-m-e-e Profile=========-->
   <div id="apiQmee" class="contentDetails cd-4">
   <h2 style="text-align:center;">Q-m-e-e Profile</h2>
-  <pre id="apiContent" style="font-family:arial;">
+  <pre id="apiQmeeContent" style="font-family:arial;">
   
   </pre>
   </div>
@@ -2097,6 +2122,7 @@
   <textarea id="input2" class="text-box" placeholder="Paste Second Amount List..." style="margin-left:27%; border:4px; border-style:solid dashed;"></textarea>
   <br>
   <button class="earn-calculate" onclick="calculateIncome()">Calculate</button>
+  <button class="earn-calculate" onclick="clearIncome()">Clear</button>
   
   <div id="result" style="height:210px; width:90%; margin:20px 3px 80px 3px; background-color:powderblue;"></div>
   </div>
@@ -2561,6 +2587,13 @@ function seeNotification(e){
   
   document.getElementById("result").innerText = result;
   }
+  /*=======Clear Income========== */
+  function clearIncome(){
+     document.getElementById("input1").value="";
+     document.getElementById("input2").value="";
+     document.getElementById("result").innerText ="";
+     document.getElementById("input1").focus();
+  }
   
   
   
@@ -2887,6 +2920,7 @@ function seeNotification(e){
   function clearSiteSearch(){
   clearHighlights();
   document.getElementById("siteSearchInput").value = "";
+  document.getElementById("siteSearchInput").focus();
   document.getElementById("searchResultCount").textContent = "";
   }
   
@@ -2898,10 +2932,12 @@ function seeNotification(e){
   
   window.addEventListener("DOMContentLoaded", renderSuggestNotes);
 
+
+/*=====Fetch API=======*/
 fetch('text-file.txt')
     .then(response => response.text())
     .then(data => {
-      document.getElementById('apiQmee').innerHTML = data;
+      document.getElementById('apiQmeeContent').innerHTML = data;
     });
 </script>
 </body>
