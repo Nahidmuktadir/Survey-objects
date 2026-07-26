@@ -289,7 +289,13 @@ Portable Gaming Device,
 Cellphone/Smartphone or other, Handheld Organizer
 
 How many hours per week do you spend playing video/comput game?
-:11 to 15 hours
+:17 to 22 hours
+
+How long do you play games for cach week?
+
+*Smartphone: 8 hrs
+*PC: 4 hrs
+Consule: 10 hrs
 
 What kind(s) of video/computer games do you play?
 :First Person Shooter/Action (e.g. Call of Duty),
