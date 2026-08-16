@@ -428,6 +428,15 @@
   }
   
   /* ===General question design===*/
+  .question-block {
+  max-width: 980px;
+  margin: 10px auto 40px auto;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  padding: 20px 14px;
+  }
+  
   .intro {
   font-size: 20px;
   font-weight: bold;
@@ -461,6 +470,121 @@
   }
   .option-list li:nth-child(even) {
   background: #f7f8fa;
+  }
+  
+  .eyebrow {
+  font-size: 16px;
+  font-weight: bold;
+  color: #14329e;
+  margin-bottom: 6px;
+  }
+  
+  /* Text input / search field (shared style for text + number inputs) */
+  .field-label {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+  }
+  input[type="text"],
+  input[type="number"],
+  textarea {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: #1a1a2e;
+  border: 1px solid #b9bec9;
+  border-radius: 4px;
+  padding: 10px 12px;
+  box-sizing: border-box;
+  }
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  textarea:focus {
+  outline: none;
+  border-color: #14329e;
+  box-shadow: 0 0 0 2px rgba(20,50,158,0.15);
+  }
+  input[type="text"] {
+  width: 100%;
+  max-width: 420px;
+  }
+  
+  /* Numeric list rows (hours-spent style question) */
+  .numeric-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0 0;
+  }
+  .numeric-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 4px;
+  border-bottom: 1px solid #d5d8dd;
+  font-size: 15px;
+  }
+  .numeric-list li:last-child {
+  border-bottom: none;
+  }
+  .numeric-list input[type="number"] {
+  width: 70px;
+  text-align: center;
+  }
+  .numeric-total {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 4px 0 0;
+  font-size: 15px;
+  font-weight: bold;
+  color: #14329e;
+  }
+  
+  /* Textarea block */
+  textarea {
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+  line-height: 1.5;
+  }
+  .char-count {
+  font-size: 13px;
+  color: #555;
+  margin-top: 6px;
+  }
+  
+  /* Ranking board (new pattern: reuses same tokens - blue #14329e, border #d5d8dd) */
+  .rank-board {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+  }
+  .rank-column {
+  flex: 1;
+  min-width: 200px;
+  background: #f7f8fa;
+  border: 1px solid #d5d8dd;
+  border-radius: 6px;
+  padding: 12px;
+  }
+  .rank-column h4 {
+  font-size: 15px;
+  font-weight: bold;
+  color: #14329e;
+  margin: 0 0 10px 0;
+  text-align: center;
+  }
+  .rank-chip {
+  background: #fff;
+  border: 1px solid #d5d8dd;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 14px;
+  margin-bottom: 8px;
+  text-align: center;
+  }
+  .rank-chip:last-child {
+  margin-bottom: 0;
   }
   
   
@@ -1009,11 +1133,180 @@
   <h3 style="text-align:center;">Details Information</h3>
   <h4 id="fordDetails">Ford:</h4>
   <p>Model: Explorer<br>Year: 2020 <br>Next vehicle will purchase: 7-12 month<br>Budget: 60,000-70,000</p>
-</div>
 
-<!--Sports Content-->
+  <!--============Horizontal Role==========================-->
+  <div class="horizontal-roll"></div>
+
+<!--Primary mail order pharmacy -->
+  <div class="question-block">
+  <div class="intro">⭕ What is the name of your primary mail order pharmacy? This is the pharmacy you most often use to fill prescriptions through the mail.</div>
+  <div class="subtitle">Begin typing at least two characters of the name of your pharmacy below and then select it from the list that appears.</div>
+
+  <label class="field-label">Search here:</label>
+  <input type="text" value="CVS Caremark">
+
+  <ul class="option-list" style="margin-top:16px;">
+    <li><input type="checkbox"> Don't know</li>
+    <li><input type="checkbox"> Don't have a primary mail order pharmacy</li>
+  </ul>
+  </div>
+  
+  <!--Water utility -->
+  <div class="question-block">
+  <div class="intro">Is your <b>water</b> utility...?</div>
+  <ul class="option-list" style="margin-top:16px;">
+  <li><input type="radio" name="water-utility"> Aqua New Jersey</li>
+  <li><input type="radio" name="water-utility"> Aquarion Water Company</li>
+  <li><input type="radio" name="water-utility" checked> NYC Department of Environmental Protection</li>
+  <li><input type="radio" name="water-utility"> Pennsylvania American Water</li>
+  <li><input type="radio" name="water-utility"> Philadelphia Water Department (City of Philadelphia)</li>
+  <li><input type="radio" name="water-utility"> Suffolk County Water Authority (SCWA)</li>
+  <li><input type="radio" name="water-utility"> Self-Describe</li>
+  <li><input type="radio" name="water-utility"> I do not purchase water from a utility (I get water from a well, stream, lake, or other source)</li>
+  <li><input type="radio" name="water-utility"> Don't know</li>
+  </ul>
+  </div>
+  
+  <!--Favorite TV show -->
+  <div class="question-block">
+  <div class="intro">For quality reasons please answer the following question in 1-2 sentences:</div>
+  <div class="intro" style="margin-top:2px;">What is your favorite tv show and what do you like about it?</div>
+  <textarea style="margin-top:14px;">My favorite TV show is "House of the Dragon". I like about how it shifts from the sprawling global politics of Game of Thrones into an intimate, claustrophobic family tragedy where every major character belongs to the same royal dynasty.</textarea>
+  </div>
+  
+  <!--Ideal holiday -->
+  <div class="question-block">
+  <div class="intro">In your own words, please describe your ideal holiday.</div>
+  <textarea style="margin-top:14px;">In my own words, My ideal holiday is where I can enjoy my time with some favorite person. It should be with quality food and good environment.</textarea>
+  </div>
+  
+  <!-- Three things you couldn't live without -->
+  <div class="question-block">
+  <div class="eyebrow">Just one more thing!</div>
+  <div class="intro">What are three things that you couldn't live without and why?</div>
+  <textarea style="margin-top:14px;">The three things that are my main happiness for my lives. They are my family, friends and the spiritual faith. I did not live without these.</textarea>
+  <div class="char-count">Please enter at least 40 characters. Remaining characters: 0</div>
+  </div>
+  
+  <!-- Q3: Topics engaged with per app - checkbox matrix -->
+  <div class="question-block">
+  <div class="intro">Which of the following topics do you engage with on each of the following apps or websites?</div>
+  <div class="subtitle">Please select all that apply for each.</div>
+  <div class="table-scroll">
+  <table>
+  <thead>
+  <tr>
+  <th></th>
+  <th>Finance</th>
+  <th>Sports</th>
+  <th>Food/Recipes</th>
+  <th>Entertainment</th>
+  <th>Travel</th>
+  <th>Science</th>
+  <th>Fashion</th>
+  <th>None of these</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td class="network-name">TikTok</td>
+  <td><input type="checkbox"></td>
+  <td><input type="checkbox"></td>
+  <td><input type="checkbox"></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+  <td class="network-name">Facebook</td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+  <td class="network-name">Pinterest</td>
+  <td><input type="checkbox"></td>
+  <td><input type="checkbox"></td>
+  <td><input type="checkbox"></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox"></td>
+  <td><input type="checkbox"></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+  <td class="network-name">X (formerly Twitter)</td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox"></td>
+  <td><input type="checkbox"></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox"></td>
+  <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+  <td class="network-name">YouTube</td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+  <td class="network-name">Snapchat</td>
+  <td><input type="checkbox"></td>
+  <td><input type="checkbox"></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+  <td class="network-name">Instagram</td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+  <td class="network-name">Reddit</td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox"></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox" checked></td>
+  <td><input type="checkbox"></td>
+  <td><input type="checkbox"></td>
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+  </div>
+
+
+<!--=======Sports Content=======-->
 <div id="sportsContents" class="contentDetails cd-2">
-  <h2 style="text-align:center;">Sports</h2>
+  <h2 style="text-align:center;">Sports & Gaming</h2>
   <p><b>My favorite Teams and Players:</b></p>
   <p style="margin-bottom:30px;">
     <ul>
@@ -1393,6 +1686,36 @@
     Winter Paralympics
     *2026 FIFA World Cup
   </pre>
+  
+  <!-- Q2: Ranking / consideration board -->
+  <div class="question-block">
+  <div class="intro">How likely are you to play each of these titles / series in future?</div>
+  <div class="rank-board">
+  <div class="rank-column">
+  <h4>My first choice</h4>
+  <div class="rank-chip">Assassin's Creed</div>
+  </div>
+  <div class="rank-column">
+  <h4>Would seriously consider</h4>
+  <div class="rank-chip">Alan Wake</div>
+  <div class="rank-chip">Hitman</div>
+  <div class="rank-chip">JOHN WICK</div>
+  <div class="rank-chip">Tom Clancy's Ghost Recon</div>
+  <div class="rank-chip">The Last of Us</div>
+  <div class="rank-chip">007 First Light</div>
+  <div class="rank-chip">Splinter Cell</div>
+  <div class="rank-chip">DEATH STRANDING</div>
+  </div>
+  <div class="rank-column">
+  <h4>Might consider</h4>
+  <div class="rank-chip">YAKOH SHINOBI OPS</div>
+  <div class="rank-chip">Metal Gear</div>
+  </div>
+  <div class="rank-column">
+  <h4>Would not consider</h4>
+  </div>
+  </div>
+  </div>
 </div>
 
 <!--==============Pet section=========-->
@@ -1790,7 +2113,8 @@
   Fox News✅
   </pre>
   
-  <!---======TV watching Habits on a Days of week=====-->
+  <!---TV watching Habits on a Days of week-->
+  <div class="question-block">
   <div class="intro">⭕ Which TV network do you use regularly?</div>
   <div class="subtitle">Select all that apply</div>
   <div class="table-scroll">
@@ -1930,7 +2254,6 @@
   <td><input type="checkbox" checked></td>
   <td><input type="checkbox"></td>
   </tr>
-  <!--Start-->
   <tr>
   <td class="network-name">TNT</td>
   <td><input type="checkbox"></td>
@@ -1993,6 +2316,94 @@
   </tr>
   </tbody>
   </table>
+  </div>
+  </div>
+  
+  <!-- Hours spent watching types of TV -->
+  <div class="question-block">
+  <div class="intro">Of the 21 hours of TV you watch in a typical week, how many hours do you spend watching the following types of TV?</div>
+  <div class="subtitle">Enter numeric responses. Your best guess is fine.</div>
+  
+  <ul class="numeric-list">
+  <li>Sports <input type="number" value="4"></li>
+  <li>News <input type="number" value="3"></li>
+  <li>TV shows/series <input type="number" value="6"></li>
+  <li>Movies <input type="number" value="6"></li>
+  <li>Other types of TV (e.g. clips, highlights, short videos) <input type="number" value="2"></li>
+  </ul>
+  <div class="numeric-total">Total: 21</div>
+  </div>
+  
+  <!-- Q1: Hours per week on activities (combined from 2-part screenshot) -->
+  <div class="question-block">
+  <div class="intro">About how many hours <u>per week</u> do you spend on each of the following activities?</div>
+  <ul class="numeric-list">
+  <li>Streaming content (TV or movies) from a paid subscription service (e.g. Netflix, Hulu, Amazon Prime Video, Disney+, etc.) <input type="number" value="17"></li>
+  <li>Watching live or recorded TV shows/series on any device/service (e.g. cable, broadcast, Sling TV, on your TV or computer, etc.)? <input type="number" value="4"></li>
+  <li>Watching video content on your mobile device <input type="number" value="10"></li>
+  <li>Playing video games on a console <input type="number" value="14"></li>
+  <li>Playing video games on a mobile device (i.e. smartphone/tablet) <input type="number" value="6"></li>
+  <li>Playing video games on a desktop or laptop computer <input type="number" value="4"></li>
+  </ul>
+  </div>
+  
+  <!-- Q2: Streaming service familiarity - radio matrix (combined from 3-part screenshot) -->
+  <div class="question-block">
+  <div class="intro">These services offer streaming videos, TV shows, or movies, typically for a subscription fee. Please choose which phrase best fits each one.</div>
+  <div class="table-scroll">
+  <table>
+  <thead>
+  <tr>
+  <th></th>
+  <th>Heard of, household uses now</th>
+  <th>Heard of, household used in the past</th>
+  <th>Heard of, household never used</th>
+  <th>Never heard of</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td class="network-name">BritBox</td><td><input type="radio" name="s1"></td><td><input type="radio" name="s1" checked></td><td><input type="radio" name="s1"></td><td><input type="radio" name="s1"></td></tr>
+  <tr><td class="network-name">FOX One</td><td><input type="radio" name="s2" checked></td><td><input type="radio" name="s2"></td><td><input type="radio" name="s2"></td><td><input type="radio" name="s2"></td></tr>
+  <tr><td class="network-name">Bloomberg TV+ (paid streaming service)</td><td><input type="radio" name="s3"></td><td><input type="radio" name="s3" checked></td><td><input type="radio" name="s3"></td><td><input type="radio" name="s3"></td></tr>
+  <tr><td class="network-name">ESPN (Unlimited, new streaming live channels)</td><td><input type="radio" name="s4" checked></td><td><input type="radio" name="s4"></td><td><input type="radio" name="s4"></td><td><input type="radio" name="s4"></td></tr>
+  <tr><td class="network-name">Mentior</td><td><input type="radio" name="s5"></td><td><input type="radio" name="s5"></td><td><input type="radio" name="s5" checked></td><td><input type="radio" name="s5"></td></tr>
+  <tr><td class="network-name">MLB.TV</td><td><input type="radio" name="s6" checked></td><td><input type="radio" name="s6"></td><td><input type="radio" name="s6"></td><td><input type="radio" name="s6"></td></tr>
+  <tr><td class="network-name">ViX Premium</td><td><input type="radio" name="s7"></td><td><input type="radio" name="s7" checked></td><td><input type="radio" name="s7"></td><td><input type="radio" name="s7"></td></tr>
+  <tr><td class="network-name">HiDive</td><td><input type="radio" name="s8"></td><td><input type="radio" name="s8"></td><td><input type="radio" name="s8" checked></td><td><input type="radio" name="s8"></td></tr>
+  <tr><td class="network-name">Crunchyroll (paid version)</td><td><input type="radio" name="s9"></td><td><input type="radio" name="s9" checked></td><td><input type="radio" name="s9"></td><td><input type="radio" name="s9"></td></tr>
+  <tr><td class="network-name">PBS Masterpiece (streaming)</td><td><input type="radio" name="s10"></td><td><input type="radio" name="s10" checked></td><td><input type="radio" name="s10"></td><td><input type="radio" name="s10"></td></tr>
+  <tr><td class="network-name">Amazon Prime Video</td><td><input type="radio" name="s11" checked></td><td><input type="radio" name="s11"></td><td><input type="radio" name="s11"></td><td><input type="radio" name="s11"></td></tr>
+  <tr><td class="network-name">NBA League Pass</td><td><input type="radio" name="s12" checked></td><td><input type="radio" name="s12"></td><td><input type="radio" name="s12"></td><td><input type="radio" name="s12"></td></tr>
+  <tr><td class="network-name">Mubi</td><td><input type="radio" name="s13"></td><td><input type="radio" name="s13"></td><td><input type="radio" name="s13" checked></td><td><input type="radio" name="s13"></td></tr>
+  <tr><td class="network-name">NFL+</td><td><input type="radio" name="s14" checked></td><td><input type="radio" name="s14"></td><td><input type="radio" name="s14"></td><td><input type="radio" name="s14"></td></tr>
+  <tr><td class="network-name">Fox Nation</td><td><input type="radio" name="s15" checked></td><td><input type="radio" name="s15"></td><td><input type="radio" name="s15"></td><td><input type="radio" name="s15"></td></tr>
+  <tr><td class="network-name">All Reality</td><td><input type="radio" name="s16"></td><td><input type="radio" name="s16"></td><td><input type="radio" name="s16" checked></td><td><input type="radio" name="s16"></td></tr>
+  <tr><td class="network-name">Victory+</td><td><input type="radio" name="s17"></td><td><input type="radio" name="s17" checked></td><td><input type="radio" name="s17"></td><td><input type="radio" name="s17"></td></tr>
+  <tr><td class="network-name">WNBA Pass</td><td><input type="radio" name="s18"></td><td><input type="radio" name="s18" checked></td><td><input type="radio" name="s18"></td><td><input type="radio" name="s18"></td></tr>
+  <tr><td class="network-name">Discovery+</td><td><input type="radio" name="s19" checked></td><td><input type="radio" name="s19"></td><td><input type="radio" name="s19"></td><td><input type="radio" name="s19"></td></tr>
+  <tr><td class="network-name">Acorn TV</td><td><input type="radio" name="s20"></td><td><input type="radio" name="s20" checked></td><td><input type="radio" name="s20"></td><td><input type="radio" name="s20"></td></tr>
+  <tr><td class="network-name">Paramount+</td><td><input type="radio" name="s21" checked></td><td><input type="radio" name="s21"></td><td><input type="radio" name="s21"></td><td><input type="radio" name="s21"></td></tr>
+  <tr><td class="network-name">Howdy</td><td><input type="radio" name="s22"></td><td><input type="radio" name="s22" checked></td><td><input type="radio" name="s22"></td><td><input type="radio" name="s22"></td></tr>
+  <tr><td class="network-name">Starz (standalone streaming service)</td><td><input type="radio" name="s23"></td><td><input type="radio" name="s23" checked></td><td><input type="radio" name="s23"></td><td><input type="radio" name="s23"></td></tr>
+  <tr><td class="network-name">BET+</td><td><input type="radio" name="s24" checked></td><td><input type="radio" name="s24"></td><td><input type="radio" name="s24"></td><td><input type="radio" name="s24"></td></tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+  <!-- Book, Movies/TV purchased or rented -->
+  <div class="question-block">
+  <div class="intro">Thinking back to the <u>past 6 months</u>, approximately how many books have you read?</div>
+  <input type="number" value="14" style="width:120px; margin-top:12px;">
+  
+  <div class="intro">Thinking back to the <u>past 6 months</u>, approximately <u>how many</u> movies or TV series have you purchased or rented at home? Please <u>include</u> digital and physical rental/purchases, but <u>exclude</u> any watched through a streaming subscription service.</div>
+  <div class="subtitle">Please enter the number of movies or TV series that you have purchased or rented in the past 6 months. If none, please enter 0.</div>
+  
+  <label class="field-label">Purchased</label>
+  <input type="number" value="4" style="width:120px;">
+  
+  <label class="field-label" style="margin-top:16px;">Rented</label>
+  <input type="number" value="10" style="width:120px;">
   </div>
   
   </div>
@@ -2347,7 +2758,106 @@
   Cash App- Used in the
   past 1 month
   </pre>
+  
+  <!-- Frequency of use - radio matrix (one selection per column) -->
+  <div class="question-block">
+  <div class="intro">How often do you use each of the following websites/apps?</div>
+  <div class="subtitle">Select one in each column</div>
+  <div class="table-scroll">
+  <table>
+  <thead>
+  <tr>
+  <th></th>
+  <th>Poshmark</th>
+  <th>Vinted</th>
+  <th>Depop</th>
+  <th>Etsy</th>
+  <th>StockX</th>
+  <th>Goat</th>
+  <th>The RealReal</th>
+  <th>eBay</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td class="network-name">Weekly or more often</td>
+  <td><input type="radio" name="poshmark"></td>
+  <td><input type="radio" name="vinted"></td>
+  <td><input type="radio" name="depop" checked></td>
+  <td><input type="radio" name="etsy"></td>
+  <td><input type="radio" name="stockx"></td>
+  <td><input type="radio" name="goat"></td>
+  <td><input type="radio" name="realreal"></td>
+  <td><input type="radio" name="ebay"></td>
+  </tr>
+  <tr>
+  <td class="network-name">Monthly</td>
+  <td><input type="radio" name="poshmark" checked></td>
+  <td><input type="radio" name="vinted" checked></td>
+  <td><input type="radio" name="depop"></td>
+  <td><input type="radio" name="etsy" checked></td>
+  <td><input type="radio" name="stockx"></td>
+  <td><input type="radio" name="goat"></td>
+  <td><input type="radio" name="realreal"></td>
+  <td><input type="radio" name="ebay" checked></td>
+  </tr>
+  <tr>
+  <td class="network-name">Every 2-3 months</td>
+  <td><input type="radio" name="poshmark"></td>
+  <td><input type="radio" name="vinted"></td>
+  <td><input type="radio" name="depop"></td>
+  <td><input type="radio" name="etsy"></td>
+  <td><input type="radio" name="stockx" checked></td>
+  <td><input type="radio" name="goat" checked></td>
+  <td><input type="radio" name="realreal" checked></td>
+  <td><input type="radio" name="ebay"></td>
+  </tr>
+  <tr>
+  <td class="network-name">Every 4-6 months</td>
+  <td><input type="radio" name="poshmark"></td>
+  <td><input type="radio" name="vinted"></td>
+  <td><input type="radio" name="depop"></td>
+  <td><input type="radio" name="etsy"></td>
+  <td><input type="radio" name="stockx"></td>
+  <td><input type="radio" name="goat"></td>
+  <td><input type="radio" name="realreal"></td>
+  <td><input type="radio" name="ebay"></td>
+  </tr>
+  <tr>
+  <td class="network-name">Less often</td>
+  <td><input type="radio" name="poshmark"></td>
+  <td><input type="radio" name="vinted"></td>
+  <td><input type="radio" name="depop"></td>
+  <td><input type="radio" name="etsy"></td>
+  <td><input type="radio" name="stockx"></td>
+  <td><input type="radio" name="goat"></td>
+  <td><input type="radio" name="realreal"></td>
+  <td><input type="radio" name="ebay"></td>
+  </tr>
+  </tbody>
+  </table>
   </div>
+  </div>
+  
+  <!-- Q4: Purchase history - checkbox list -->
+  <div class="question-block">
+  <div class="intro">From which, if any, of the following websites/apps have you bought an item in the past 12 months?</div>
+  <div class="subtitle">Please select all that apply</div>
+  <ul class="option-list">
+  <li><input type="checkbox" checked> Poshmark</li>
+  <li><input type="checkbox" checked> Vinted</li>
+  <li><input type="checkbox" checked> Depop</li>
+  <li><input type="checkbox" checked> Etsy</li>
+  <li><input type="checkbox"> StockX</li>
+  <li><input type="checkbox"> Goat</li>
+  <li><input type="checkbox"> The RealReal</li>
+  <li><input type="checkbox" checked> eBay</li>
+  <li><input type="checkbox"> None of the above</li>
+  </ul>
+  </div>
+  </div>
+  
+  
   
 </div>
 
