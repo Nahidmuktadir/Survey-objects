@@ -509,6 +509,11 @@
   max-width: 420px;
   }
   
+  select {
+  width: 100%;
+  max-width: 480px;
+  }
+  
   /* Numeric list rows (hours-spent style question) */
   .numeric-list {
   list-style: none;
@@ -530,6 +535,12 @@
   width: 70px;
   text-align: center;
   }
+  
+  .numeric-list .pct-suffix {
+  margin-left: -18px;
+  color: #555;
+  }
+  
   .numeric-total {
   display: flex;
   justify-content: flex-end;
@@ -585,6 +596,35 @@
   }
   .rank-chip:last-child {
   margin-bottom: 0;
+  }
+  
+  /* Tile grid (new pattern - selectable colored tiles, single or multi select) */
+  .tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+  }
+  .tile {
+  border: 1px solid #d5d8dd;
+  border-radius: 6px;
+  padding: 22px 14px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  background: #f7f8fa;
+  cursor: pointer;
+  }
+  .tile.selected {
+  background: #14329e;
+  color: #fff;
+  border-color: #14329e;
+  }
+  .tile input[type="text"] {
+  width: 100%;
+  margin-top: 8px;
+  font-weight: normal;
   }
   
   
@@ -982,7 +1022,7 @@
 <div id="myself" class="contentDetails cd-1">
   <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 312C386.3 312 440 258.3 440 192C440 125.7 386.3 72 320 72C253.7 72 200 125.7 200 192C200 258.3 253.7 312 320 312zM290.3 368C191.8 368 112 447.8 112 546.3C112 562.7 125.3 576 141.7 576L498.3 576C514.7 576 528 562.7 528 546.3C528 447.8 448.2 368 349.7 368L290.3 368z"/></svg></div>
   <h2 style="text-align:center;">Myself</h2>
-  <!--=================My vehicle=====================-->
+  <!--My vehicle-->
   <h4>My vehicles:</h4>
   <ul>
   <li>Ford <a href="#fordDetails" ><svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 640 640"><path fill="#f09c60" d="M384 64C366.3 64 352 78.3 352 96C352 113.7 366.3 128 384 128L466.7 128L265.3 329.4C252.8 341.9 252.8 362.2 265.3 374.7C277.8 387.2 298.1 387.2 310.6 374.7L512 173.3L512 256C512 273.7 526.3 288 544 288C561.7 288 576 273.7 576 256L576 96C576 78.3 561.7 64 544 64L384 64zM144 160C99.8 160 64 195.8 64 240L64 496C64 540.2 99.8 576 144 576L400 576C444.2 576 480 540.2 480 496L480 416C480 398.3 465.7 384 448 384C430.3 384 416 398.3 416 416L416 496C416 504.8 408.8 512 400 512L144 512C135.2 512 128 504.8 128 496L128 240C128 231.2 135.2 224 144 224L224 224C241.7 224 256 209.7 256 192C256 174.3 241.7 160 224 160L144 160z"/></svg></a></li>
@@ -995,7 +1035,7 @@
   <li>Motorized boat</li>
   </ul>
   
-  <!--===============My Electronic=======================-->
+  <!--My Electronic-->
   <h4>My Electronics:</h4>
   <ul>
   <li>Computer</li>
@@ -1046,7 +1086,7 @@
   device(e.g., smart/connected
   TV,Amazon Fire TV, Roku,etc.)= 3-4 hours
   
-  <!--============Horizontal Role==========================-->
+  <!--Horizontal Role-->
   <div class="horizontal-roll"></div>
   
   <div class="intro">⭕ In a typical day, about how much time do you spend doing the following activities?</div>
@@ -1299,6 +1339,50 @@
   </tbody>
   </table>
   </div>
+  </div>
+  
+  <!-- Q5: Work role / industry / title / children - mixed radio + dropdowns -->
+  <div class="question-block">
+  <div class="intro">Which of the following best describes your primary role in the company or organization for which you work?</div>
+  <ul class="option-list">
+  <li><input type="radio" name="role"> Executive / Senior Management</li>
+  <li><input type="radio" name="role"> Middle Management / Line Management / Supervisory</li>
+  <li><input type="radio" name="role" checked> Individual Contributor / Non-Management</li>
+  </ul>
+  
+  <div class="intro" style="margin-top:24px;">Which of the following best describes your company or organization in the Food / Beverages / Restaurant industry?</div>
+  <select>
+  <option selected>Restaurants &amp; Cafes - Fast-Food and Quick-Service Restaurants</option>
+  </select>
+  
+  <div class="field-label" style="margin-top:20px; font-weight:bold; font-size:16px; color:#1a1a2e;">Current business title or role</div>
+  <select>
+  <option selected>None of the above</option>
+  </select>
+  
+  <div class="intro" style="margin-top:20px;">How many children, aged 18 or under, that you are the parent or step-parent of, are there living in your household either permanently or just some of the time?</div>
+  <select>
+  <option selected>None</option>
+  </select>
+  <div class="subtitle" style="margin-top:8px;">Note: the dropdown lists above only show the currently selected option, since the full list of choices wasn't visible in the screenshot.</div>
+  </div>
+  
+  <!-- Q10: Tire brand at purchase - searchable single-select list (combined from 2-part screenshot) -->
+  <div class="question-block">
+  <div class="intro">Which tires brand did your vehicle have at the moment of purchase / leasing?</div>
+  <div class="subtitle">Select one</div>
+  <label class="field-label">Search</label>
+  <input type="text" placeholder="Search">
+  <ul class="option-list" style="margin-top:16px;">
+  <li><input type="radio" name="tire"> I do not remember</li>
+  <li><input type="radio" name="tire"> BFGoodrich</li>
+  <li><input type="radio" name="tire"> Bridgestone</li>
+  <li><input type="radio" name="tire"> Continental</li>
+  <li><input type="radio" name="tire"> Cooper</li>
+  <li><input type="radio" name="tire" checked> Dunlop</li>
+  <li><input type="radio" name="tire"> Falcons</li>
+  <li><input type="radio" name="tire"> Firestone</li>
+  </ul>
   </div>
   
   </div>
@@ -1754,6 +1838,35 @@
   🍩 Hill's Science Diet
   🍪 Blue Buffalo
   </pre>
+  
+  <!-- Dog hip and joint supplement brands purchased - multi-select tile grid -->
+  <div class="question-block">
+  <div class="intro">Which brand or brands of dog hip and joint supplements have you purchased in the past 6 months?</div>
+  <div class="subtitle">Select all that apply.</div>
+  <div class="tile-grid">
+  <div class="tile">Cosequin</div>
+  <div class="tile selected">Vet IQ</div>
+  <div class="tile selected">Vetriscience</div>
+  <div class="tile selected">Flexadin</div>
+  <div class="tile selected">Dr. Joseph's</div>
+  <div class="tile selected">Wuffes</div>
+  <div class="tile">Private label / store brand</div>
+  <div class="tile">Other brand (please specify)<input type="text"></div>
+  </div>
+  </div>
+  
+  <!-- Dog hip and joint supplement brand purchased most often - single select tile grid -->
+  <div class="question-block">
+  <div class="intro">And which one brand of dog hip and joint supplements have you purchased most often in the past 6 months?</div>
+  <div class="subtitle">Select one response.</div>
+  <div class="tile-grid">
+  <div class="tile">Vet IQ</div>
+  <div class="tile selected">Vetriscience</div>
+  <div class="tile">Flexadin</div>
+  <div class="tile">Dr. Joseph's</div>
+  <div class="tile">Wuffes</div>
+  </div>
+  </div>
 </div>
 
 <!--==============Financial Companies & Insurance=========-->
@@ -1804,6 +1917,31 @@
   *Ethereum (ETH)
   *Dogecoin (DOGE)
   </pre>
+  
+  <!-- Q8: Mobile/digital wallet spending by account type (%) -->
+  <div class="question-block">
+  <div class="intro">Approximately what percentage of your past month mobile/digital wallet or some other Mobile payment app spending was paid for using following accounts?</div>
+  <ul class="numeric-list">
+  <li>Credit Card(s) <span><input type="number" value="70"><span class="pct-suffix">%</span></li>
+  <li>Debit Card(s) <span><input type="number" value="30"><span class="pct-suffix">%</span></li>
+  <li>Prepaid /Reloadable Cash Cards <span><input type="number" value="0"><span class="pct-suffix">%</span></span></li>
+  </ul>
+  <div class="numeric-total">TOTAL 100%</div>
+  </div>
+  
+  <!-- Q9: Past month purchases by payment method (%) -->
+  <div class="question-block">
+  <div class="intro">What percent of your past month purchases was paid for using the following payment methods?</div>
+  <ul class="numeric-list">
+  <li>Cash <span><input type="number" value="20"><span class="pct-suffix">%</span></span></li>
+  <li>Credit and/or Charge Cards (general purpose cards, other than a department store or petrol cards, such as: Amex, Discover, MasterCard, Visa) <span><input type="number" value="40"><span class="pct-suffix">%</span></span></li>
+  <li>Debit card (card that allows bank customers to withdraw cash or make purchases and have the money automatically withdrawn from their checking or savings account) <span><input type="number" value="10"><span class="pct-suffix">%</span></span></li>
+  <li>Paypal <span><input type="number" value="20"><span class="pct-suffix">%</span></span></li>
+  <li>Any other Mobile Payment app including Mobile or digital wallet <span><input type="number" value="10"><span class="pct-suffix">%</span></span></li>
+  </ul>
+  <div class="numeric-total">Sum 100%</div>
+  </div>
+  
   </div>
   
   <!--==============Shaving or Trimming Habits=========-->
@@ -2347,7 +2485,7 @@
   </ul>
   </div>
   
-  <!-- Q2: Streaming service familiarity - radio matrix (combined from 3-part screenshot) -->
+  <!-- Streaming service familiarity - radio matrix (combined from 3-part screenshot) -->
   <div class="question-block">
   <div class="intro">These services offer streaming videos, TV shows, or movies, typically for a subscription fee. Please choose which phrase best fits each one.</div>
   <div class="table-scroll">
@@ -2406,6 +2544,241 @@
   <input type="number" value="10" style="width:120px;">
   </div>
   
+  <!-- Recency of subscribing per service (title not visible in screenshot - placeholder used, please adjust) -->
+  <div class="question-block">
+  <div class="intro">For each of the following streaming services, about how long ago did you last subscribe?</div>
+  <div class="subtitle">Title text was cropped in the screenshot - please replace with the exact wording if different.</div>
+  <div class="table-scroll">
+  <table>
+  <thead>
+  <tr>
+  <th></th>
+  <th>30 days ago or less</th>
+  <th>More than 1 month, up to 3 months ago</th>
+  <th>4-6 months ago</th>
+  <th>7-11 months ago</th>
+  <th>1-2 years ago</th>
+  <th>2+ years ago</th>
+  <th>Never subscribed</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td class="network-name">BritBox</td><td><input type="radio" name="r1"></td><td><input type="radio" name="r1"></td><td><input type="radio" name="r1"></td><td><input type="radio" name="r1" checked></td><td><input type="radio" name="r1"></td><td><input type="radio" name="r1"></td><td><input type="radio" name="r1"></td></tr>
+  <tr><td class="network-name">Curiosity Stream</td><td><input type="radio" name="r2"></td><td><input type="radio" name="r2"></td><td><input type="radio" name="r2"></td><td><input type="radio" name="r2"></td><td><input type="radio" name="r2" checked></td><td><input type="radio" name="r2"></td><td><input type="radio" name="r2"></td></tr>
+  <tr><td class="network-name">Crunchyroll (paid version)</td><td><input type="radio" name="r3"></td><td><input type="radio" name="r3"></td><td><input type="radio" name="r3"></td><td><input type="radio" name="r3" checked></td><td><input type="radio" name="r3"></td><td><input type="radio" name="r3"></td><td><input type="radio" name="r3"></td></tr>
+  <tr><td class="network-name">Howdy</td><td><input type="radio" name="r4"></td><td><input type="radio" name="r4"></td><td><input type="radio" name="r4"></td><td><input type="radio" name="r4" checked></td><td><input type="radio" name="r4"></td><td><input type="radio" name="r4"></td><td><input type="radio" name="r4"></td></tr>
+  <tr><td class="network-name">Acorn TV</td><td><input type="radio" name="r5"></td><td><input type="radio" name="r5"></td><td><input type="radio" name="r5"></td><td><input type="radio" name="r5" checked></td><td><input type="radio" name="r5"></td><td><input type="radio" name="r5"></td><td><input type="radio" name="r5"></td></tr>
+  <tr><td class="network-name">Bloomberg TV+ (paid streaming service)</td><td><input type="radio" name="r6"></td><td><input type="radio" name="r6"></td><td><input type="radio" name="r6" checked></td><td><input type="radio" name="r6"></td><td><input type="radio" name="r6"></td><td><input type="radio" name="r6"></td><td><input type="radio" name="r6"></td></tr>
+  <tr><td class="network-name">PBS Masterpiece (streaming)</td><td><input type="radio" name="r7"></td><td><input type="radio" name="r7"></td><td><input type="radio" name="r7" checked></td><td><input type="radio" name="r7"></td><td><input type="radio" name="r7"></td><td><input type="radio" name="r7"></td><td><input type="radio" name="r7"></td></tr>
+  <tr><td class="network-name">Pure Flix (paid version)</td><td><input type="radio" name="r8"></td><td><input type="radio" name="r8"></td><td><input type="radio" name="r8"></td><td><input type="radio" name="r8" checked></td><td><input type="radio" name="r8"></td><td><input type="radio" name="r8"></td><td><input type="radio" name="r8"></td></tr>
+  <tr><td class="network-name">ViX Premium</td><td><input type="radio" name="r9"></td><td><input type="radio" name="r9"></td><td><input type="radio" name="r9"></td><td><input type="radio" name="r9" checked></td><td><input type="radio" name="r9"></td><td><input type="radio" name="r9"></td><td><input type="radio" name="r9"></td></tr>
+  <tr><td class="network-name">Starz (standalone streaming service)</td><td><input type="radio" name="r10"></td><td><input type="radio" name="r10" checked></td><td><input type="radio" name="r10"></td><td><input type="radio" name="r10"></td><td><input type="radio" name="r10"></td><td><input type="radio" name="r10"></td><td><input type="radio" name="r10"></td></tr>
+  <tr><td class="network-name">WNBA Pass</td><td><input type="radio" name="r11"></td><td><input type="radio" name="r11"></td><td><input type="radio" name="r11" checked></td><td><input type="radio" name="r11"></td><td><input type="radio" name="r11"></td><td><input type="radio" name="r11"></td><td><input type="radio" name="r11"></td></tr>
+  <tr><td class="network-name">YouTube Premium (paid version, but not YouTube TV with traditional TV channels)</td><td><input type="radio" name="r12"></td><td><input type="radio" name="r12"></td><td><input type="radio" name="r12" checked></td><td><input type="radio" name="r12"></td><td><input type="radio" name="r12"></td><td><input type="radio" name="r12"></td><td><input type="radio" name="r12"></td></tr>
+  <tr><td class="network-name">Victory+</td><td><input type="radio" name="r13"></td><td><input type="radio" name="r13"></td><td><input type="radio" name="r13"></td><td><input type="radio" name="r13" checked></td><td><input type="radio" name="r13"></td><td><input type="radio" name="r13"></td><td><input type="radio" name="r13"></td></tr>
+  <tr><td class="network-name">Shudder</td><td><input type="radio" name="r14"></td><td><input type="radio" name="r14"></td><td><input type="radio" name="r14" checked></td><td><input type="radio" name="r14"></td><td><input type="radio" name="r14"></td><td><input type="radio" name="r14"></td><td><input type="radio" name="r14"></td></tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+  <!-- Q2: Podcasts downloaded/streamed in past week -->
+  <div class="question-block">
+  <div class="intro">Which of the following podcasts have you downloaded or streamed in the past week, if any?</div>
+  <div class="subtitle">Select all that apply.</div>
+  <ul class="option-list">
+  <li><input type="checkbox"> Black Tech Green Money</li>
+  <li><input type="checkbox"> Stuff Mom Never Told You</li>
+  <li><input type="checkbox"> It's Up There Podcast w/ Looney</li>
+  <li><input type="checkbox"> ok storytime</li>
+  <li><input type="checkbox"> Reasonably Shady</li>
+  <li><input type="checkbox" checked> The Truth Lounge</li>
+  <li><input type="checkbox" checked> Pod Meets World</li>
+  <li><input type="checkbox"> On Purpose with Jay Shetty</li>
+  <li><input type="checkbox"> Eating While Broke</li>
+  <li><input type="checkbox"> Magical Rewind</li>
+  <li><input type="checkbox" checked> Reality with The King</li>
+  <li><input type="checkbox"> All the Smoke</li>
+  <li><input type="checkbox"> That Moment with Daymond John</li>
+  <li><input type="checkbox"> Betrayal</li>
+  <li><input type="checkbox"> The MeatEater Podcast</li>
+  <li><input type="checkbox"> Whine Down</li>
+  <li><input type="checkbox"> R&amp;B Money</li>
+  <li><input type="checkbox"> The Bobby Bones Show</li>
+  <li><input type="checkbox" checked> Ring Champs with Ak &amp; Barak</li>
+  <li><input type="checkbox" checked> Zuri Hall's Hot Happy Mess</li>
+  <li><input type="checkbox"> KG Certified</li>
+  <li><input type="checkbox"> The Latest with Loren LoRosa</li>
+  <li><input type="checkbox" checked> Stuff You Should Know</li>
+  <li><input type="checkbox" checked> Bully Ball with Rachel Nichols &amp; Demarcus Cousins</li>
+  <li><input type="checkbox"> Essential Voices with Wilmer Valderrama</li>
+  <li><input type="checkbox"> Broken Play with Navv Greene</li>
+  <li><input type="checkbox"> The Breakfast Club</li>
+  <li><input type="checkbox"> The Colin Cowherd Podcast</li>
+  <li><input type="checkbox"> Straight Shot, No Chaser with Tezlyn Figaro</li>
+  <li><input type="checkbox"> Just Heal</li>
+  </ul>
+  </div>
+  
+  <!-- Q15: Podcasts listened to in last 7 days -->
+  <div class="question-block">
+  <div class="intro">Did you listen to any of the below podcasts in the last 7 days?</div>
+  <ul class="option-list">
+  <li><input type="checkbox" checked> Aspire with Emma Grede</li>
+  <li><input type="checkbox" checked> Goop</li>
+  <li><input type="checkbox" checked> Calm Down with Erin and Charissa</li>
+  <li><input type="checkbox" checked> Second Opinion</li>
+  <li><input type="checkbox" checked> Man On</li>
+  <li><input type="checkbox" checked> Unfiltered Soccer Sponsorship</li>
+  <li><input type="checkbox" checked> The Dan Buettner Show</li>
+  <li><input type="checkbox" checked> The Rich Eisen Show</li>
+  <li><input type="checkbox" checked> We Can Do Hard Things</li>
+  <li><input type="checkbox" checked> Mind The Game</li>
+  <li><input type="checkbox"> Bigger Pockets Network</li>
+  <li><input type="checkbox"> The School of Greatness (HR + Experiences)</li>
+  <li><input type="checkbox" checked> Revisionist History</li>
+  <li><input type="checkbox" checked> The Rich Roll Podcast</li>
+  <li><input type="checkbox"> Welcome to The Party</li>
+  <li><input type="checkbox"> Bookmarked by Reese's Book Club</li>
+  </ul>
+  </div>
+  
+  <!-- Q3: Radio stations listened to in past week (3-part card rows) -->
+  <div class="question-block">
+  <div class="intro">7. We'd like to know the radio stations you listen to (again, consider all the ways you might listen to radio). Please indicate which stations you have listened to in the past week.</div>
+  <div class="subtitle">Select all that apply.</div>
+  <ul class="option-list">
+  <li>
+  <input type="checkbox" checked>
+  <div class="station-info">
+  <span class="station-name">106.7 Lite FM</span>
+  <span class="station-callsign">WLTW-FM</span>
+  <span class="station-freq">106.7</span>
+  </div>
+  </li>
+  <li>
+  <input type="checkbox" checked>
+  <div class="station-info">
+  <span class="station-name">Q104.3</span>
+  <span class="station-callsign">WAXQ-FM</span>
+  <span class="station-freq">104.3</span>
+  </div>
+  </li>
+  <li>
+  <input type="checkbox" checked>
+  <div class="station-info">
+  <span class="station-name">La X 96.3</span>
+  <span class="station-callsign">WXNY-FM</span>
+  <span class="station-freq">96.3</span>
+  </div>
+  </li>
+  <li>
+  <input type="checkbox" checked>
+  <div class="station-info">
+  <span class="station-name">103.5 KTU</span>
+  <span class="station-callsign">WKTU-FM</span>
+  <span class="station-freq">103.5</span>
+  </div>
+  </li>
+  <li>
+  <input type="checkbox">
+  <div class="station-info">
+  <span class="station-name">Z100</span>
+  <span class="station-callsign">WHTZ-FM</span>
+  <span class="station-freq">100.3</span>
+  </div>
+  </li>
+  <li>
+  <input type="checkbox" checked>
+  <div class="station-info">
+  <span class="station-name">Power 105.1</span>
+  <span class="station-callsign">WWPR-FM</span>
+  <span class="station-freq">105.1</span>
+  </div>
+  </li>
+  <li>
+  <input type="checkbox">
+  <div class="station-info">
+  <span class="station-name">I have listened to none of these stations in the past week</span>
+  </div>
+  </li>
+  </ul>
+  </div>
+  
+  <!-- Q4: How long expect to keep a subscription account -->
+  <div class="question-block">
+  <div class="intro">When you first sign up for a paid subscription streaming service (e.g. Netflix, Amazon, Hulu, etc.), how long do you typically expect to have an account with the service?</div>
+  <ul class="option-list">
+  <li><input type="radio" name="acct-length"> 30 days or less</li>
+  <li><input type="radio" name="acct-length"> More than 1 month, up to 3 months</li>
+  <li><input type="radio" name="acct-length"> 4-6 months</li>
+  <li><input type="radio" name="acct-length"> 7-11 months</li>
+  <li><input type="radio" name="acct-length" checked> 1-2 years</li>
+  <li><input type="radio" name="acct-length"> More than 2 years</li>
+  </ul>
+  </div>
+  
+  <!-- Q7: Additional rows for the earlier streaming-service familiarity matrix (append to previous table) -->
+  <div class="question-block">
+  <div class="intro">Streaming service familiarity - additional rows</div>
+  <div class="subtitle">These rows continue the "Heard of, household uses now / used in the past / never used / never heard of" matrix from earlier - append to that table. (NFL+ was already included earlier and is skipped here to avoid duplication.)</div>
+  <div class="table-scroll">
+  <table>
+  <thead>
+  <tr>
+  <th></th>
+  <th>Heard of, household uses now</th>
+  <th>Heard of, household used in the past</th>
+  <th>Heard of, household never used</th>
+  <th>Never heard of</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td class="network-name">Curiosity Stream</td><td><input type="radio" name="f1"></td><td><input type="radio" name="f1" checked></td><td><input type="radio" name="f1"></td><td><input type="radio" name="f1"></td></tr>
+  <tr><td class="network-name">YouTube Premium (paid version, but not YouTube TV with traditional TV channels)</td><td><input type="radio" name="f2"></td><td><input type="radio" name="f2" checked></td><td><input type="radio" name="f2"></td><td><input type="radio" name="f2"></td></tr>
+  <tr><td class="network-name">MGM+, formerly Epix</td><td><input type="radio" name="f3" checked></td><td><input type="radio" name="f3"></td><td><input type="radio" name="f3"></td><td><input type="radio" name="f3"></td></tr>
+  <tr><td class="network-name">ALLBLK</td><td><input type="radio" name="f4"></td><td><input type="radio" name="f4"></td><td><input type="radio" name="f4" checked></td><td><input type="radio" name="f4"></td></tr>
+  <tr><td class="network-name">Zeus Network</td><td><input type="radio" name="f5"></td><td><input type="radio" name="f5"></td><td><input type="radio" name="f5" checked></td><td><input type="radio" name="f5"></td></tr>
+  <tr><td class="network-name">Disney+</td><td><input type="radio" name="f6" checked></td><td><input type="radio" name="f6"></td><td><input type="radio" name="f6"></td><td><input type="radio" name="f6"></td></tr>
+  <tr><td class="network-name">Cinemax (streaming)</td><td><input type="radio" name="f7" checked></td><td><input type="radio" name="f7"></td><td><input type="radio" name="f7"></td><td><input type="radio" name="f7"></td></tr>
+  <tr><td class="network-name">Apple TV</td><td><input type="radio" name="f8" checked></td><td><input type="radio" name="f8"></td><td><input type="radio" name="f8"></td><td><input type="radio" name="f8"></td></tr>
+  <tr><td class="network-name">DAZN</td><td><input type="radio" name="f9" checked></td><td><input type="radio" name="f9"></td><td><input type="radio" name="f9"></td><td><input type="radio" name="f9"></td></tr>
+  <tr><td class="network-name">Hallmark+, formerly Hallmark Movies Now</td><td><input type="radio" name="f10" checked></td><td><input type="radio" name="f10"></td><td><input type="radio" name="f10"></td><td><input type="radio" name="f10"></td></tr>
+  <tr><td class="network-name">Pure Flix (paid version)</td><td><input type="radio" name="f11"></td><td><input type="radio" name="f11" checked></td><td><input type="radio" name="f11"></td><td><input type="radio" name="f11"></td></tr>
+  <tr><td class="network-name">AMC+ (standalone streaming service)</td><td><input type="radio" name="f12" checked></td><td><input type="radio" name="f12"></td><td><input type="radio" name="f12"></td><td><input type="radio" name="f12"></td></tr>
+  <tr><td class="network-name">HBO Max, formerly Max</td><td><input type="radio" name="f13" checked></td><td><input type="radio" name="f13"></td><td><input type="radio" name="f13"></td><td><input type="radio" name="f13"></td></tr>
+  <tr><td class="network-name">ESPN+</td><td><input type="radio" name="f14" checked></td><td><input type="radio" name="f14"></td><td><input type="radio" name="f14"></td><td><input type="radio" name="f14"></td></tr>
+  <tr><td class="network-name">Shudder</td><td><input type="radio" name="f15"></td><td><input type="radio" name="f15" checked></td><td><input type="radio" name="f15"></td><td><input type="radio" name="f15"></td></tr>
+  <tr><td class="network-name">Hulu (on demand, not Hulu with Live TV)</td><td><input type="radio" name="f16" checked></td><td><input type="radio" name="f16"></td><td><input type="radio" name="f16"></td><td><input type="radio" name="f16"></td></tr>
+  <tr><td class="network-name">Up Faith &amp; Family</td><td><input type="radio" name="f17" checked></td><td><input type="radio" name="f17"></td><td><input type="radio" name="f17"></td><td><input type="radio" name="f17"></td></tr>
+  <tr><td class="network-name">Netflix</td><td><input type="radio" name="f18" checked></td><td><input type="radio" name="f18"></td><td><input type="radio" name="f18"></td><td><input type="radio" name="f18"></td></tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
+  <!-- Q8: Household use of sports pass add-ons (3-column matrix) -->
+  <div class="question-block">
+  <div class="intro">What best describes your household's use of these, as streaming services?</div>
+  <div class="table-scroll">
+  <table>
+  <thead>
+  <tr>
+  <th></th>
+  <th>Household uses now</th>
+  <th>Household used in the past</th>
+  <th>Household never used</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td class="network-name">MLS Season Pass (from Apple TV)</td><td><input type="radio" name="p1" checked></td><td><input type="radio" name="p1"></td><td><input type="radio" name="p1"></td></tr>
+  <tr><td class="network-name">NFL Red Zone (streaming)</td><td><input type="radio" name="p2" checked></td><td><input type="radio" name="p2"></td><td><input type="radio" name="p2"></td></tr>
+  <tr><td class="network-name">NFL Sunday Ticket (from YouTube TV)</td><td><input type="radio" name="p3" checked></td><td><input type="radio" name="p3"></td><td><input type="radio" name="p3"></td></tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
   </div>
   
   <!--==============Wireless and Home Internet=========-->
@@ -2451,9 +2824,9 @@
   </pre>
   </div>
   
-  <!--==============Restaurants & Dianing Habits=========-->
+  <!--==============Restaurants & Dianing/Food Habits=========-->
   <div id="restaurent" class="contentDetails cd-4">
-  <h2 style="text-align:center;">Restaurants & Dianing Habits</h2>
+  <h2 style="text-align:center;">Restaurants & Dianing/ Food Habits</h2>
   <pre style="font-family:arial;">
   ⭕ Which of these Fast Food restaurants have I purchased from in the past 3
   months?
@@ -2528,6 +2901,118 @@
   
   Casey pizza- chos in the past 3 month
   </pre>
+  
+  <!-- Q3: Protein/Functional Shakes and/or Powders - multi-select tile grid (combined from 3-part screenshot) -->
+  <div class="question-block">
+  <div class="intro">Which brands of Protein/Functional Shakes and/or Powders have you purchased in the past 3 months?</div>
+  <div class="subtitle">Select all that apply.</div>
+  <div class="tile-grid">
+  <div class="tile">Clean Simple Eats</div>
+  <div class="tile selected">Evolve</div>
+  <div class="tile selected">Premier Protein</div>
+  <div class="tile selected">Vital Proteins</div>
+  <div class="tile selected">Orgain</div>
+  <div class="tile selected">Ensure</div>
+  <div class="tile">Clean Simple</div>
+  <div class="tile selected">Optimum Nutrition</div>
+  <div class="tile selected">Owyn</div>
+  <div class="tile selected">Proper</div>
+  <div class="tile selected">Muscle Milk</div>
+  <div class="tile selected">ARMRA</div>
+  <div class="tile selected">Isopure</div>
+  <div class="tile selected">Core Power</div>
+  <div class="tile selected">Atkins</div>
+  <div class="tile selected">Emergen-C</div>
+  <div class="tile selected">Alani Nu</div>
+  <div class="tile selected">Liquid I.V.</div>
+  <div class="tile">Fairlife</div>
+  <div class="tile selected">Six Star</div>
+  <div class="tile">Kachava</div>
+  <div class="tile selected">Body Fortress</div>
+  <div class="tile selected">Glucerna</div>
+  <div class="tile selected">Celsius</div>
+  <div class="tile selected">Quest</div>
+  <div class="tile">SEEQ</div>
+  <div class="tile selected">Bloom</div>
+  <div class="tile selected">Boost</div>
+  <div class="tile selected">Protein2O</div>
+  <div class="tile">AG1</div>
+  <div class="tile selected">Store brand / Private Label</div>
+  <div class="tile">Other brand (please specify)<input type="text"></div>
+  </div>
+  </div>
+  
+  <!-- Q4: Protein/Functional Shakes brand purchased most often - single select tile grid -->
+  <div class="question-block">
+  <div class="intro">And which one brand of Protein/Functional Shakes and/or Powders have you purchased most often in the past 3 months?</div>
+  <div class="subtitle">Select one response.</div>
+  <div class="tile-grid">
+  <div class="tile">Evolve</div>
+  <div class="tile selected">Premier Protein</div>
+  <div class="tile">Vital Proteins</div>
+  <div class="tile">Orgain</div>
+  <div class="tile">Ensure</div>
+  <div class="tile">Optimum Nutrition</div>
+  <div class="tile">Owyn</div>
+  <div class="tile">Proper</div>
+  <div class="tile">Muscle Milk</div>
+  <div class="tile">ARMRA</div>
+  <div class="tile">Isopure</div>
+  <div class="tile">Core Power</div>
+  <div class="tile">Atkins</div>
+  <div class="tile">Emergen-C</div>
+  <div class="tile">Alani Nu</div>
+  <div class="tile">Liquid I.V.</div>
+  </div>
+  </div>
+  
+  <!-- Q11: Drink mix / powder brands purchased - title not visible in screenshot, placeholder used -->
+  <div class="question-block">
+  <div class="intro">Which brands of drink mixes / powders have you purchased in the past 3 months?</div>
+  <div class="subtitle">Title text was cropped in the screenshot - please replace with the exact wording if different. Select all that apply.</div>
+  <div class="tile-grid">
+  <div class="tile selected">Nuun</div>
+  <div class="tile selected">Waterboy</div>
+  <div class="tile selected">Crystal Light</div>
+  <div class="tile selected">Country Time</div>
+  <div class="tile selected">Gatorade</div>
+  <div class="tile selected">Store Brand / Private Label</div>
+  <div class="tile">Other brand (please specify)<input type="text"></div>
+  </div>
+  </div>
+  
+  <!-- Q12: Water Enhancer brands purchased -->
+  <div class="question-block">
+  <div class="intro">Which brands of Water Enhancers have you purchased in the past 3 months?</div>
+  <div class="subtitle">Select all that apply.</div>
+  <div class="tile-grid">
+  <div class="tile selected">Drip Drop</div>
+  <div class="tile selected">Body Armor Flash IV</div>
+  <div class="tile selected">Salud</div>
+  <div class="tile selected">Mio</div>
+  <div class="tile selected">Propel</div>
+  <div class="tile selected">Kool-Aid</div>
+  <div class="tile selected">True Lemon</div>
+  <div class="tile selected">Tang</div>
+  <div class="tile selected">Prime</div>
+  <div class="tile">LMNT</div>
+  <div class="tile selected">Ultima</div>
+  <div class="tile selected">Liquid I.V.</div>
+  <div class="tile selected">Smart Water</div>
+  <div class="tile">Splash</div>
+  <div class="tile selected">Powerade Power Water</div>
+  <div class="tile selected">Gatorade Water</div>
+  <div class="tile selected">Propel</div>
+  <div class="tile selected">LIFEWTR</div>
+  <div class="tile selected">Hint</div>
+  <div class="tile selected">Bai</div>
+  <div class="tile selected">Vitamin Water</div>
+  <div class="tile selected">Essentia</div>
+  <div class="tile selected">Core Hydration</div>
+  <div class="tile selected">Lemon Perfect</div>
+  </div>
+  </div>
+  
   </div>
   
   <!--==============Going to places and Commuting places =========-->
@@ -2621,6 +3106,20 @@
   *Kroger Ultra (Kroger's Brand)
   
   </pre>
+  
+  <!-- Q6: Household cleaner brands used -->
+  <div class="question-block">
+  <div class="intro">Which of the following brands of household cleaners have you used in the past 6 months?</div>
+  <div class="subtitle">Please select all that apply:</div>
+  <ul class="option-list">
+  <li><input type="checkbox" checked> Comet</li>
+  <li><input type="checkbox" checked> Febreze</li>
+  <li><input type="checkbox" checked> Mr. Clean</li>
+  <li><input type="checkbox" checked> Swiffer</li>
+  <li><input type="checkbox" checked> Windex</li>
+  <li><input type="checkbox"> N/A</li>
+  </ul>
+  </div>
   </div>
   
   <!--==============Home Appliances=========-->
@@ -2721,6 +3220,69 @@
   *Soundbar- LG
   *Home Streaming Speaker- JBL
   </pre>
+  
+  <!-- Q5: Espresso machine brands -->
+  <div class="question-block">
+  <div class="intro">Which of the following brands offers a line of <u>espresso machines</u>?</div>
+  <div class="subtitle">Please select all that apply.</div>
+  <ul class="option-list">
+  <li><input type="checkbox"> Keurig</li>
+  <li><input type="checkbox" checked> Ninja</li>
+  <li><input type="checkbox"> KitchenAid</li>
+  <li><input type="checkbox"> Beautiful by Drew</li>
+  <li><input type="checkbox"> DeLonghi</li>
+  <li><input type="checkbox"> Breville</li>
+  <li><input type="checkbox"> None of the above</li>
+  </ul>
+  </div>
+  
+  <!-- Q6: Countertop appliance brands (combined from 2-part screenshot) -->
+  <div class="question-block">
+  <div class="intro">Which <u>countertop appliance</u> brands would you buy?</div>
+  <div class="subtitle">Please select all that apply.</div>
+  <ul class="option-list">
+  <li><input type="checkbox"> Hamilton Beach</li>
+  <li><input type="checkbox"> Breville</li>
+  <li><input type="checkbox"> Nutribullet</li>
+  <li><input type="checkbox"> Beautiful by Drew</li>
+  <li><input type="checkbox"> DeLonghi</li>
+  <li><input type="checkbox"> Black and Decker</li>
+  <li><input type="checkbox"> Ooni</li>
+  <li><input type="checkbox"> Smeg</li>
+  <li><input type="checkbox" checked> KitchenAid</li>
+  <li><input type="checkbox"> Ninja</li>
+  <li><input type="checkbox"> None of the above</li>
+  </ul>
+  </div>
+  
+  <!-- Q7: Wearable device familiarity matrix -->
+  <div class="question-block">
+  <div class="intro">Please indicate which statement is applicable to each wearable device (including those you mentioned in the prior question)</div>
+  <div class="table-scroll">
+  <table>
+  <thead>
+  <tr>
+  <th></th>
+  <th>Never Heard Of</th>
+  <th>Aware Of, Never Used</th>
+  <th>Used Previously</th>
+  <th>Currently Use</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr><td class="network-name">Fitbit</td><td><input type="radio" name="w1"></td><td><input type="radio" name="w1"></td><td><input type="radio" name="w1" checked></td><td><input type="radio" name="w1"></td></tr>
+  <tr><td class="network-name">Ultrahuman Ring</td><td><input type="radio" name="w2"></td><td><input type="radio" name="w2" checked></td><td><input type="radio" name="w2"></td><td><input type="radio" name="w2"></td></tr>
+  <tr><td class="network-name">WHOOP</td><td><input type="radio" name="w3"></td><td><input type="radio" name="w3" checked></td><td><input type="radio" name="w3"></td><td><input type="radio" name="w3"></td></tr>
+  <tr><td class="network-name">Polar</td><td><input type="radio" name="w4"></td><td><input type="radio" name="w4" checked></td><td><input type="radio" name="w4"></td><td><input type="radio" name="w4"></td></tr>
+  <tr><td class="network-name">Apple Watch</td><td><input type="radio" name="w5"></td><td><input type="radio" name="w5"></td><td><input type="radio" name="w5"></td><td><input type="radio" name="w5" checked></td></tr>
+  <tr><td class="network-name">Samsung Galaxy (Watch + Ring)</td><td><input type="radio" name="w6"></td><td><input type="radio" name="w6" checked></td><td><input type="radio" name="w6"></td><td><input type="radio" name="w6"></td></tr>
+  <tr><td class="network-name">Garmin</td><td><input type="radio" name="w7"></td><td><input type="radio" name="w7"></td><td><input type="radio" name="w7" checked></td><td><input type="radio" name="w7"></td></tr>
+  <tr><td class="network-name">Oura Ring</td><td><input type="radio" name="w8"></td><td><input type="radio" name="w8" checked></td><td><input type="radio" name="w8"></td><td><input type="radio" name="w8"></td></tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  
   </div>
   
   <!--==============Shopping Habits=========-->
@@ -3089,7 +3651,7 @@
   </div>
   
   <!--============Mettings Decision==========-->
-  <div id="myself" class="contentDetails cd-1">
+  <div id="meeting" class="contentDetails cd-1">
   <h2 style="text-align:center;">Meetings</h2>
   <div class="horizontal-roll" style="margin-bottom:40px;"></div>
   <pre style="font-family:arial;">
@@ -3126,7 +3688,7 @@
   </pre>
   
   <!--========Scretchbook=============-->
-  <div id="myself" class="contentDetails cd-2">
+  <div id="scretchbook" class="contentDetails cd-2">
   <h2 style="text-align:center;">Scretch Book</h2>
   <p><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100" style="vertical-align:middle"><rect x="8" y="5" width="60" height="90" rx="6" fill="#0b3b8c"/><rect x="14" y="10" width="48" height="80" rx="4" fill="#fff"/><circle cx="38" cy="40" r="16" fill="#ff9800"/><path d="M22 40c6 8 28 8 32 0" fill="#ffe0bd"/><path d="M22 28l8-8 8 8M54 28l-8-8-8 8" stroke="#0b3b8c" stroke-width="s="3" fill="#ff9800"/><path d="M24 65l6-6 6 6 6-6 6 6" stroke="#0b3b8c" stroke-width="4" fill="none" stroke-linecap="round"/><rect x="74" y="10" width="14" height="80" rx="3" fill="#0b3b8c"/><rect x="76" y="60" width="10" height="20" fill="#ffd54f"/><polygon points="74,10 81,0 88,10" fill="#6c63ff"/></svg>Valued থেকে 1.25$ হবে প্রতিদিন।</p>
   <p><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100" style="vertical-align:middle"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ff5f6d"/><stop offset="100%" stop-color="#24c6dc"/></linearGradient></defs><circle cx="50" cy="50" r="48" fill="url(#g)"/><rect x="28" y="22" width="28" height="56" rx="4" fill="#fff"/><rect x="60" y="22" width="8" height="56" rx="3" fill="#fff"/><polygon points="60,78 68,78 64,88" fill="#fff"/></svg> Qmee থেকে 2.70$ আয় হবে।</p>
