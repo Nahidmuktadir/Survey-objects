@@ -1,0 +1,2311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="manifest" href="manifest.json">
+<title>My Demographic Profile</title>
+<style>
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f5f7;
+    margin: 0;
+    padding: 24px;
+    color: #1a1a2e;
+    box-sizing: border-box;
+  }
+  .profile-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .page-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .section-heading {
+    font-size: 17px;
+    font-weight: bold;
+    color: #1a1a2e;
+    margin: 28px 0 10px 0;
+  }
+
+  /* Answer card (new pattern - read-only answered Q&A, reuses card/shadow tokens) */
+  .answer-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    padding: 16px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .answer-check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #2e8b57;
+    color: #2e8b57;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .answer-body {
+    flex: 1;
+  }
+  .answer-question {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+  .answer-hint {
+    font-size: 13px;
+    color: #777;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+  .answer-value {
+    font-size: 15px;
+    color: #444;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+  .answer-flame {
+    margin-left: auto;
+    color: #6b4fd6;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  a { color: #14329e; }
+  
+  .answer-icons {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  flex-shrink: 0;
+  }
+  .answer-warn {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #b8860b;
+  border-radius: 50%;
+  color: #b8860b;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 18px;
+  text-align: center;
+  flex-shrink: 0;
+  }
+  .answer-info {
+  color: #14329e;
+  font-size: 16px;
+  flex-shrink: 0;
+  }
+  
+  
+  
+  
+  
+  
+  
+  /*=====Reading Control CSS========*/
+  header {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 12px 16px;
+  box-shadow: 0 2px 8px #0001;
+  z-index: 10;
+  }
+  
+  #progressBar {
+  height: 4px;
+  background: #ddd;
+  margin-top: 10px;
+  }
+  
+  #progress {
+  height: 100%;
+  width: 0%;
+  background: #168a50;
+  }
+  
+  main {
+  max-width: 760px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  }
+  
+  button {
+  padding: 10px 15px;
+  margin: 5px 5px 5px 0;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  }
+  
+  #resume { background: #168a50; color: white; }
+  #restart { background: #e7e7e7; }
+  
+  #status {
+  font-size: 14px;
+  color: #168a50;
+  }
+  
+  h2 { margin-top: 35px; }
+</style>
+</head>
+<body>
+
+<!--====Reading mode button and progress bar====-->
+<header>
+  <strong>📖 My Reading Page</strong>
+  <div id="progressBar"><div id="progress"></div></div>
+  <div id="status">Reading progress will save automatically.</div>
+</header>
+
+  <h1>আমার পড়ার নোট</h1>
+
+  <div id="resumePanel" hidden>
+    <p>তুমি আগে যেখানে পড়া বন্ধ করেছিলে, সেখানে ফিরে যাবে?</p>
+    <button id="resume">Resume Reading</button>
+    <button id="restart">Start Over</button>
+  </div>
+  
+<!--=====END=======-->
+
+<div class="profile-wrap" id="reading-section">
+<div class="page-title">Prollll Profile</div>
+
+<!--=====Demographics Details========-->
+<pre style="font-family:arial;">
+⭕ you be willing to do any of the 
+following with a camera mounted in or on
+a vehicle or other mode of transport 
+you have access to?(Select all that apply)
+
+*I would not be willing to do any of these
+
+⭕ Have you used any of the following 
+services to earn money, for example as 
+a driver or courier?
+
+*None of the above
+
+⭕ Are you willing to participate in a face 
+to face video call interview?
+
+*No, I would not be willing to take part in 
+an interview or focus group
+
+⭕ Tell us anything else about yourself Use 
+this space to share anything that helps us 
+get to know you better
+
+*I am Abdul Motassir Nabid. I am Full time
+ Worker.
+
+⭕ Do you have any dietary restrictions?
+
+*No
+
+⭕ Would you be willing to do any of the 
+following during physical activity for a 
+study?(Select all that apply) 
+
+*I would not be willing to do any of these
+
+⭕ Have you been diagnosed with Dyslexia,
+ Dyspraxia or ADHD, or aware of haig ay 
+ related literacy difficulties?
+
+*No
+
+⭕ Which of the following subject areas 
+does your highest level degree most closely
+relate to?
+
+*Sociology
+
+⭕ What subject area does your highest
+ level degree most closely relate to? 
+ (f you have more than one degee at this 
+ level, select all that applyl
+
+*Other
+
+⭕ When it comes to others having the 
+right to terminate their pregnancy, are 
+you Pro Life or Pro Choice?
+
+*Pro-Life
+
+⭕ Have you ever boycotted a product 
+or service as a form of protest?
+
+*No
+
+⭕ Do you have normal or corrected-to-normal
+ vision?
+
+*No
+
+⭕ I currently use glasses or contact 
+lenses to correctmy vision?
+
+*I do not use glasses or contact lenses
+
+⭕ Do you have a cochlear implant?
+
+*No
+
+⭕ Have you ever been diagnosed by a 
+healthcare professional with any
+of the following sleep disorders? Select 
+all that apply.
+
+*No, I have never been diagnosed with 
+a sleep disorder.
+
+⭕ In the past 3 months, how often have 
+you had trouble falling asleep,
+staying asleep, or waking too early, in 
+a way that affected how you
+felt or functioned the next day?
+
+*Rarely (1-3 nights in the past 3 months)
+
+How many units of alcohol do you consume 
+in a typical week?
+1 unit of alcohol=1 small glass of wine; 
+half pint of beer; pub measure of spirits.
+1-7
+
+⭕ How many units of alcohol do you consume 
+in a typical week?
+1 unit of alcohol=1 small glass of wine; 
+half pint of beer; pub measure of spirits.
+
+* 1-7
+
+⭕ Do you consider yourself to be 
+neurodivergent?
+Neurodiversity describes non-pathological 
+variations in brain function, including 
+sociability,
+learning, attention, and mood. You can 
+find more information about what is meant by
+neurodiversity here.
+
+*No
+
+⭕ Do you currently take the drug Ozempic?
+You can find more information about Ozempic 
+here:
+https://www.ema.europa.eu/en/medicines/
+human/EPAR/ozempic
+
+*No currently, but I take it
+before
+
+⭕ Have you had a sexual partner in the 
+past year?
+
+*No
+
+⭕ Have you used any smartphone enabled 
+dating apps?
+
+*Yes
+
+⭕ Are you or your partner currently 
+pregnant?
+
+*No
+
+⭕ Thinking about your body weight which 
+of the following would you say you
+are?
+
+*Slightly Overweight
+
+⭕ What is your BMI (Body Mass Index)?
+If you need to calculate your BMI, you can 
+find a calculator
+
+*25-29.9
+
+⭕ Do you regularly use electronic 
+cigarettes and/or tobacco products (e.g.
+cigarettes, cigars)?
+
+*Regularly use both tobacco products 
+and e-cigarettes
+
+⭕ What is your current vaping status? 
+Please select from the following options:
+
+*I am a current vaper (vape at least once 
+a day)
+
+⭕ What is your current smoking status? 
+Please select from the following
+options:
+
+*I am a current smoker (smoke at 
+least 5 cigarettes a day and have
+smoked this amount for at least one yeOther
+
+⭕ Which of the following nicotine 
+products do you use on a regular basis?
+* Cigarettes
+* E-cigarettes
+* Cigars
+* Cigarillos
+* Hookah
+* Pipe tobacco
+* Nicotine pouches
+* Smokeless tobacco
+* Heated tobacco products 
+* (heat-not-burn)
+* Other
+
+⭕ What is your blood type?
+Find out more about how to find your 
+blood type: https://www.nhs.uk/
+common-health-questions/
+operations-tests-and-procedures/
+how-can-i-find-out-my-blood-type-blood-
+group/
+
+* O RhD positive (O+)
+
+⭕ Which of the following best describes you?
+
+* I am currently actively looking for a job
+
+⭕ How many years have you lived in your 
+current country of residence?
+
+* Between 5 and 6 years
+
+⭕ Who did you vote for in the 2020 US 
+presidential election?
+
+* I did not vote
+
+⭕ Who did you vote for in the 2024 US 
+presidential election?
+
+* I did not vote
+
+
+</pre>
+
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you participate in regular religious activities?</div>
+    <div class="answer-value">Yes. Both public and private</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you believe in climate change?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Generally speaking, how concerned are you about environmental issues?</div>
+    <div class="answer-value">5 (Very concerned)</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">To what extent would you be in favour of or opposed to the building of a new wind farm near where you live?</div>
+    <div class="answer-hint">Please answer between 1 (I would strongly oppose the local wind farm) to 7 (I would strongly support the local wind farm).</div>
+    <div class="answer-value">4</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Please describe your attitudes towards the COVID-19 (Coronavirus) vaccines:</div>
+    <div class="answer-value">Neutral (I don't have strong opinions either way)</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Have you ever consulted with a healthcare provider using telemedicine?</div>
+    <div class="answer-hint">Telemedicine is defined as obtaining medical treatment remotely using technology such as video conferencing.</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Including you, how many people live in your household?</div>
+    <div class="answer-value">4</div>
+  </div>
+  <div class="answer-flame">&#128293;</div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Please indicate the number of people living in your household (excluding yourself) that you consider to be members of your family</div>
+    <div class="answer-value">3</div>
+  </div>
+</div>
+
+<div class="section-heading">Siblings</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you have any siblings?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">I have extra responsibilities looking after a friend or member of my family due to a long-term physical or mental ill health or disability, or problem related to old age?</div>
+    <div class="answer-value">No</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you have any children?</div>
+    <div class="answer-value">No</div>
+  </div>
+</div>
+
+<div class="section-heading">Romantic relationship</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">When it comes to relationships, I think of or identify myself as:</div>
+    <div class="answer-value">Monogamous</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Apart from your native language, do you speak any other languages fluently?</div>
+    <div class="answer-value">native language + two other languages</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Were you raised monolingual?</div>
+    <div class="answer-value">I was raised with my native language only</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you have any language related disorders?</div>
+    <div class="answer-value">No</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following languages are you fluent in?</div>
+    <div class="answer-hint">Please include all languages you are fluent in, including your first language (if appropriate)</div>
+    <div class="answer-value">English</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What is your first language?</div>
+    <div class="answer-value">Bengali</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which variation(s) or regional dialect(s) do you speak fluently, if any?</div>
+    <div class="answer-hint">For example: Australian English or Welsh English. Skip if not applicable, or select "Other" if your variation isn't listed.</div>
+    <div class="answer-value">English: Standard American English<br>Bengali: Sylheti</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What language(s) did you speak earliest in life?</div>
+    <div class="answer-hint">The language(s) you spent the most time speaking before the age of 5.</div>
+    <div class="answer-value">Bengali</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following is your primary spoken language?</div>
+    <div class="answer-hint">The language(s) you use most regularly at this current time.</div>
+    <div class="answer-value">Bengali<br>English</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Have you ever made investments (either personal or through your employment) in the common stock or shares of a company?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Have you invested in any of the following types of investment in the past?</div>
+    <div class="answer-value">Stock Market</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What is the approximate value of your current investable assets in USD?</div>
+    <div class="answer-value">$15,000 - $24,999</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you own/hold any cryptocurrencies?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">When evaluating a company's stock as a potential investment, how often do you examine a company's financial statements (for example, through its annual report or SEC filings) as part of your evaluation?</div>
+    <div class="answer-value">Sometimes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Have you signed into your online banking in the last 90 days?</div>
+    <div class="answer-value">No</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What is your personal income per year (after tax) in USD?</div>
+    <div class="answer-value">$30,000-$39,999</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which one of the following statements best describes your role in making financial decisions for yourself and/or your family?</div>
+    <div class="answer-value">I am the primary financial decision-maker</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you have a bank account?</div>
+    <div class="answer-value">I have my own account</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What is your total household income per year, including all earners in your household (after tax) in USD?</div>
+    <div class="answer-value">$70000-$79999</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What is your personal income per year (after tax) in GBP?</div>
+    <div class="answer-hint">If you need to convert from another currency, you can find a converter <a href="#">here</a>.</div>
+    <div class="answer-value">&#163;50,000 - &#163;59,999</div>
+  </div>
+</div>
+
+<div class="section-heading">Investment</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which trading platforms do you use?</div>
+    <div class="answer-value">Other platform not listed</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you currently use or have you ever used one of the following Buy now pay later financial services when purchasing online</div>
+    <div class="answer-hint">This applies to any services, products, subscriptions or anything else you have purchased!</div>
+    <div class="answer-value">Klarna<br>Clearpay / Afterpay</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you actively hold any of the following types of insurance policies?</div>
+    <div class="answer-value">Health Insurance<br>Home Insurance<br>Life Insurance<br>Pet Insurance<br>Vehicle Insurance</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which US bank is your main account with?</div>
+    <div class="answer-value">Bank of America</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What is your total household income per year, including all earners in your household (after tax) in GBP?</div>
+    <div class="answer-hint">If you need to convert from another currency, you can find a converter <a href="#">here</a>.</div>
+    <div class="answer-value">&#163;50,000 - &#163;59,999</div>
+  </div>
+  <div class="answer-flame">&#128293;</div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following banking products do you hold?</div>
+    <div class="answer-value">Current/Chequing Account<br>Savings<br>Credit Card<br>Mortgage<br>Loans and or lines of credit<br>Investment Account</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you own or lease a car?</div>
+    <div class="answer-value">I own a car</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you own an electric vehicle charger or charging point?</div>
+    <div class="answer-value">No</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you own the property that you live in?</div>
+    <div class="answer-value">I own the property I live in</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What type of property do you live in?</div>
+    <div class="answer-value">Detached house</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What are the model year(s) of the car(s) you own or lease?</div>
+    <div class="answer-value">2020</div>
+  </div>
+  <div class="answer-flame">&#128293;</div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What brand(s) of car do you own or lease?</div>
+    <div class="answer-value">Ford</div>
+  </div>
+  <div class="answer-flame">&#128293;</div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Are you currently in the process of buying a new house?</div>
+    <div class="answer-value">I am considering buying a house but have not started the process.</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you or anyone in your household own or lease an electric vehicle?</div>
+    <div class="answer-value">Yes, other electric vehicle (e.g. scooter)</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of these credit cards do you own?</div>
+    <div class="answer-value">American Express<br>Other</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How would you describe your attitude towards taking financial risks?</div>
+    <div class="answer-value">I am willing to take moderate risks for potential gains</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you have a retirement plan?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How much, if anything, did you donate to charity in the last 12 months?</div>
+    <div class="answer-value">&#163;501+</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">When was the last time you travelled abroad?</div>
+    <div class="answer-value">In the last 3 months</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Are you left or right-handed?</div>
+    <div class="answer-value">Right-handed</div>
+  </div>
+</div>
+
+<div class="section-heading">Travelling</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Have you used any of the following ridesharing services?</div>
+    <div class="answer-value">Lyft</div>
+    <div class="answer-value">Uber</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you use a car at least once a month?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Have you previously participated in any AI research studies? This may include activities such as reviewing or fact-checking AI model responses, annotating or labeling data for AI model training, or other related tasks.</div>
+    <div class="answer-hint">Please note, this does not refer to the general/personal/profession use of AI models.</div>
+    <div class="answer-value">None</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Have you ever served on a jury?</div>
+    <div class="answer-value">No</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you have a driving license?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Have you ever contributed to a study or task that involved remotely operating a robot?</div>
+    <div class="answer-value">No</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How comfortable are you with repeating the same physical task (e.g. chores) many times with small variations (e.g., different lighting, angles, or speeds)?</div>
+    <div class="answer-value">Very comfortable</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Have you considered pursuing education in a different country?</div>
+    <div class="answer-hint">Please only respond yes if you have considered doing a full degree abroad, rather than a year abroad as part of your course</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Are you considering one of the following further study options?</div>
+    <div class="answer-value">Master's Degree</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of these is the highest level of education completed by either of your parents?</div>
+    <div class="answer-value">High school diploma / A-Levels / Community college</div>
+  </div>
+</div>
+
+<div class="section-heading">Student</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Are you a student?</div>
+    <div class="answer-value">No</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What is your college/university education background relative to your parents or guardians?</div>
+    <div class="answer-value">First generation - neither parent/guardian completed a college or university degree</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What year did you complete your indicated highest level of education?</div>
+    <div class="answer-value">2021</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of these is the highest level of education you have completed?</div>
+    <div class="answer-value">Undergraduate degree (BA/BSc/other)</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which E-learning platforms do you use</div>
+    <div class="answer-value">Udemy<br>Other<br>SkillShare<br>Coursera<br>edX</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you have a colleague whom you spend most of your time at work with?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Does your work require you to regularly interact with other employees (e.g. co-workers, colleagues, subordinates, assistants)?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you have a direct supervisor at work?</div>
+    <div class="answer-value">No</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">At work, do you have any supervisory responsibilities? In other words, do you have the authority to give instructions to subordinates?</div>
+    <div class="answer-value">No</div>
+  </div>
+</div>
+
+<div class="section-heading">Interactions at work</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you work as part of a workgroup within your organisation?</div>
+    <div class="answer-value">I work as part of a small group 2-10</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Are you employed in a customer facing/front line employee role such as retail or banking?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What is your current job title, level or responsibility?</div>
+    <div class="answer-value">Administrative (Clerical or Support Staff)</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How many years of professional work experience do you have?</div>
+    <div class="answer-hint">This includes all professional roles you've held throughout your career</div>
+    <div class="answer-value">1-2 years</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you have any experience in making hiring decisions (i.e. have you been responsible for hiring job candidates)?</div>
+    <div class="answer-value">No</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you have any experience being in a management position?</div>
+    <div class="answer-value">No</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following sectors you have past work experience in?</div>
+    <div class="answer-value">Other</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Are you employed in any of the following roles?</div>
+    <div class="answer-value">None of the above</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How long have you worked for your current organization?</div>
+    <div class="answer-value">1-2 years</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following categories best describes the industry you primarily work in (regardless of your actual position)?</div>
+    <div class="answer-value">Food processing and service</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following best describes your role at work?</div>
+    <div class="answer-value">Administrative Staff</div>
+  </div>
+</div>
+
+<div class="section-heading">Responsibility</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following best describes your role?</div>
+    <div class="answer-value">Individual contributor / Non-manager</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What decision-making responsibilities do you have at work?</div>
+    <div class="answer-hint">In other words, what decisions do you have the authority to make on behalf of your employer?</div>
+    <div class="answer-value">Operations/production<br>Other</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What type of company do you work for?</div>
+    <div class="answer-value">Other</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following best describes the sector you primarily work in?</div>
+    <div class="answer-value">Other</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Please describe your work</div>
+    <div class="answer-value">Employee of a for-profit company or business or of an individual, for wages, salary, or commissions</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Are you an active military service member?</div>
+    <div class="answer-value">No, I am not</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Have you ever considered a career move as a (paid) employee in a startup?</div>
+    <div class="answer-value">Yes, I've considered it</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Please think about a specific technology (e.g., software) that you are required to use at work. How often do you use it?</div>
+    <div class="answer-value">more than once a day</div>
+  </div>
+</div>
+
+<div class="section-heading">Employment sector</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following describes your function in your organization? By function, we mean the types of activities you complete in your role - not what your company does overall.</div>
+    <div class="answer-value">Administration/ Personal Assistant</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you have experience of negotiation in the course of your work?</div>
+    <div class="answer-hint">For example, buying or supplying service or products to another organisation, relationship management, negotiation, make-or-buy decisions, etc.</div>
+    <div class="answer-value">No</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What type of hours do you work?</div>
+    <div class="answer-value">Regular 9-5</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Have you engaged in entrepreneurship/run your own business?</div>
+    <div class="answer-value">I intend to in the future</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">To what extent do your job tasks involve the use safety procedures?</div>
+    <div class="answer-value">Almost all my job tasks are guided by safety procedures</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Where do you primarily work?</div>
+    <div class="answer-value">I always work from a central place of work</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Please try to estimate: How many hours do you work per week?</div>
+    <div class="answer-value">31-40 hours per week</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How do you typically commute/travel to work?</div>
+    <div class="answer-value">by car</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following best describes your organization?</div>
+    <div class="answer-value">A for-profit, business-to-consumer company (B2C)</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following best describes how you conduct your work?</div>
+    <div class="answer-value">I use a computer or mobile device for 75% or more of my work</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How many employees does the company you work for have?</div>
+    <div class="answer-value">1000+</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following best describes you?</div>
+    <div class="answer-value">I am currently not actively looking for a job</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following have you experienced or are experiencing at work? Please select all that apply.</div>
+    <div class="answer-value">I generally feel passionate about my work (that is, excited and highly motivated)<br>I generally feel respected at work (by my colleagues and/or superiors)</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Are you responsible for any work with ticketing or service requests, and if so, how would you describe it? (Ticketing refers to logging, tracking and resolving requests or issues submitted by employees or customers)</div>
+    <div class="answer-value">No — I don't work with ticketing or service requests.</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How does your organisation currently approach workflow management tools? (Tools used to plan, track and manage work)</div>
+    <div class="answer-value">Actively using — Our team currently relies on one or more workflow management tools to plan and track work.</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Share your LinkedIn profile</div>
+    <div class="answer-hint">To find your Linkedin profile link, go to Me &gt; View Profile &gt; Public profile &amp; URL - your profile link will start with www.linkedin.com/in/</div>
+    <div class="answer-value">www.linkedin.com/in/abdul-motassir-nabid-88b8b6415</div>
+  </div>
+  <div class="answer-icons"><span class="answer-info">&#9432;</span><span class="answer-flame">&#128293;</span></div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which tools does your team use / is your team considering? Select all that apply.</div>
+    <div class="answer-value">GitHub Projects</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of these options best describes your personal experience of travelling for business?</div>
+    <div class="answer-hint">You may choose a maximum of 4 options that best apply to you</div>
+    <div class="answer-value">I regularly hire a car for business travel (5+ times a year)</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Would you like to share your LinkedIn profile?</div>
+    <div class="answer-hint">Prolific won't share your LinkedIn with researchers. This helps us verify your skills and experience.</div>
+    <div class="answer-value">Yes, I'd like to share</div>
+  </div>
+  <div class="answer-icons"><span class="answer-info">&#9432;</span><span class="answer-flame">&#128293;</span></div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Are you employed in any of the following roles?</div>
+    <div class="answer-value">None of the above</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What is your employment status ?</div>
+    <div class="answer-value">Full-Time</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you identify yourself as a monocultural or multicultural individual?</div>
+    <div class="answer-value">I identify myself as a monocultural individual</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Where did you spend most of your time before turning 18?</div>
+    <div class="answer-value">Bangladesh</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Were you born in the country you are currently living in?</div>
+    <div class="answer-value">No, I moved to the country I am now living in</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What is your country of birth?</div>
+    <div class="answer-value">Bangladesh</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Have you ever lived for an extended period (6months or longer) in a country other than the one where you are currently living?</div>
+    <div class="answer-value">No</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How many years have you lived in your current country of residence?</div>
+    <div class="answer-value">Between 1 and 2 years</div>
+  </div>
+</div>
+
+<div class="section-heading">USA</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What USA region do you currently live in?</div>
+    <div class="answer-value">Northeast</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What US state do you currently live in?</div>
+    <div class="answer-value">New York (NY)</div>
+  </div>
+</div>
+
+<div class="section-heading">Meditation</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you meditate?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Are you currently an active and playing team member in any of the following sports?</div>
+    <div class="answer-value">None of the above (not listed)</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How often do you engage in physical exercise per week?</div>
+    <div class="answer-value">Often (more than 150 minutes per week)</div>
+  </div>
+</div>
+
+<div class="section-heading">Arts</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following hobbies and/or crafts you do regularly? (Select all that apply)</div>
+    <div class="answer-value">Build models or paint miniatures<br>Cooking that involves precise knife work, plating, or pastry<br>Another hobby or activity involving precise hand movements</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Have you ever read any books written by the following authors? Please select all that apply:</div>
+    <div class="answer-value">Charles Dickens<br>Tim Stephenson<br>Harper Lee<br>Stephen King<br>Karen Roper<br>J.K. Rowling<br>C.S. Lewis<br>Dan Brown<br>Jeffrey Archer</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you have experience creating illustrations?</div>
+    <div class="answer-value">Yes, I have experience creating illustrations in a non-professional capacity</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following sports do you watch regularly?</div>
+    <div class="answer-value">Soccer / Association Football<br>Cricket<br>Field Hockey<br>Tennis<br>Volleyball<br>Table Tennis<br>Major League Baseball<br>Golf<br>Basketball (NBA)<br>American Football (NFL)<br>Ice Hockey (NHL)<br>Cycling<br>Rugby<br>Olympics<br>College Football<br>College Basketball<br>Combat Sports<br>NASCAR<br>Formula 1<br>IndyCar</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How many pets do you own in total?</div>
+    <div class="answer-value">16</div>
+  </div>
+</div>
+
+<div class="section-heading">Sports</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following physical activities do you do at least weekly? (Select all that apply)</div>
+    <div class="answer-value">Walking<br>Running or jogging<br>Cycling<br>Climbing (e.g. rock climbing, bouldering)<br>Strength or weight training<br>Lifting<br>Swimming<br>Other physical activity</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following does your home or apartment have?</div>
+    <div class="answer-value">Kitchen<br>Living room / lounge<br>Bedroom<br>Bathroom<br>Separate toilet<br>Walk-in closet<br>Basement<br>Private garden or yard<br>Garage (attached or detached)<br>Other</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What type of power source does your primary vehicle or transportation use?</div>
+    <div class="answer-value">Plug-in hybrid</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you actively engage as any of the following?</div>
+    <div class="answer-value">Influencer</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How often do you play problem-solving games?</div>
+    <div class="answer-hint">For example a crossword, wordle, sudoku, go, chess, other puzzles, escape room</div>
+    <div class="answer-value">Often (Daily/Weekly)</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How do you participate in sport?</div>
+    <div class="answer-value">I actively take part in both team and non-team sports</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What music streaming services do you use regularly?</div>
+    <div class="answer-value">Spotify<br>Apple Music<br>Other</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you currently own any of the following as a pet?</div>
+    <div class="answer-value">Dog<br>Cat<br>Fish<br>Bird</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following vehicles/transportation do you have access to? Include vehicles you own, lease, or can use whenever you need. E.g. a household member's.</div>
+    <div class="answer-value">Car<br>Motorcycle<br>E-bike</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following types of games are you interested in playing at least occasionally? Please select all that apply:</div>
+    <div class="answer-value">Computer games<br>Console games<br>Handheld console games<br>Free-to-play mobile games<br>Premium mobile games (pay to download)<br>Esports games<br>Virtual reality games<br>Online casino games<br>Collectible card games<br>Board games</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following categories of hobbies are you strongly interested in? Please choose up to THREE (3) categories - the ones you're most interested in:</div>
+    <div class="answer-value">Travelling<br>Science<br>Video Games</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Imagine taking part in a study where you record audio and video of yourself doing everyday activities at home. Which of these spaces would you be willing to record in? (Select all that apply)</div>
+    <div class="answer-value">Living room / lounge</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of these AI chatbots have you interacted with?</div>
+    <div class="answer-hint">If you have used more than 5 chatbots, please select the 5 you have the most experience with</div>
+    <div class="answer-value">ChatGPT<br>Claude<br>GitHub Copilot<br>Google Bard<br>Google Gemini</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Have you viewed Internet pornography within the last 6 months?</div>
+  </div>
+  <div class="answer-icons"><span class="answer-warn">!</span></div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How many times did you tweet on Twitter in the last 12 months (excluding retweets)?</div>
+    <div class="answer-value">20-100 times</div>
+  </div>
+</div>
+
+<div class="section-heading">Online behaviour</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What types of online gambling / casino games have you played? Choose all that apply</div>
+    <div class="answer-value">Lottery<br>Poker<br>Race &amp; Sports Book<br>Video poker<br>Virtual Sports Betting</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following chat apps do you use regularly?</div>
+    <div class="answer-value">Facebook Messenger<br>Snapchat<br>Telegram<br>WhatsApp<br>iMessage<br>Other</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following social media sites do you use on a regular basis (at least once a month)? Choose any that apply.</div>
+    <div class="answer-value">Facebook<br>Youtube<br>Twitter<br>Linkedin<br>Pinterest<br>Tumblr<br>Instagram<br>Reddit<br>Snapchat<br>TikTok<br>Discord</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Can you touch type?</div>
+    <div class="answer-hint">Touch typing involves using muscle memory to use your keyboard - so you don't need to use your sight to type</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you have computer programming skills?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">If you have one, please share a link to your GitHub profile</div>
+  </div>
+  <div class="answer-icons"><span class="answer-info">&#9432;</span></div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of these programming languages are you proficient in?</div>
+    <div class="answer-hint">Can you code in any of these languages?</div>
+    <div class="answer-value">CSS<br>Javascript<br>HTML<br>PHP<br>Python<br>SQL</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following software development techniques are you proficient in?</div>
+    <div class="answer-value">Web servers<br>Database management<br>Responsive design<br>UI design</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">In a given month, how frequently do you use a VR headset?</div>
+    <div class="answer-value">more than 15 times</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How many hours per week do you play video games on average?</div>
+    <div class="answer-value">13 hours or more</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">In a typical week, I focus on a device with a screen (mobile phone, tablet, laptop, desktop) for an hour or more at a time</div>
+    <div class="answer-value">Multiple times every day</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Who is your home internet (wi-fi/broadband) provider?</div>
+    <div class="answer-value">Spectrum / Charter</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which cell phone carrier do you use?</div>
+    <div class="answer-value">Mint Mobile</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following input devices do you use at least monthly? (Select all that apply)</div>
+    <div class="answer-value">Gamepad / game controller (Xbox, PlayStation, Switch)<br>VR controllers (Quest, Vision Pro, etc.)<br>Flight or driving sim peripherals (joystick, wheel, pedals)</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Have you engaged in any of the following simulated experiences before? Choose all that apply:</div>
+    <div class="answer-value">Virtual reality<br>Augmented reality<br>Mixed reality<br>Other</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you own a VR (Virtual Reality) headset?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">In a typical week, the devices that I use on a near daily basis are: (Check all that apply)</div>
+    <div class="answer-value">Mobile Phone<br>Tablet reader<br>Tablet<br>Laptop<br>Desktop</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the below assistive technologies do you use when using computers and/or other devices?</div>
+    <div class="answer-value">I do not use any assistive technologies</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What type of home internet do you have?</div>
+    <div class="answer-value">Fibre to the home (gigabit-capable)</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following tools have you used? (Select all that apply)</div>
+    <div class="answer-value">None of these</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following AI coding assistants do you use? (Select all that apply)</div>
+    <div class="answer-value">GitHub Copilot<br>Claude Code<br>Codex (OpenAI)<br>Gemini Code Assist</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Below, you find a list of popular internet connected products. For each product, please select whether you currently own it</div>
+    <div class="answer-value">Smart TV (e.g. Samsung, LG, JVC)<br>Smart Thermostat (e.g. Nest, Hive, tadoi)<br>Connected lights (e.g. Phillips Hue, LIFX, Elgato Avea, Belkin WeMo)<br>Games console (e.g. PS4, Xbox one)<br>Home assistants/smart hub (e.g. Amazon echo, CastleHub, Google Home)<br>Smart watch (e.g. Apple watch, Samsung gear, Moto 360, Asus ZenWatch)<br>Video streaming product (e.g. AppleTV, chromecast)<br>Smart doorlock and/or doorbell (e.g. August Smartlock, Danalock, Ring smart doorbell)<br>Smart security camera (e.g. Nest Cam, Netatmo, Netgear Arlo)<br>Smart health monitors excluding smart watches (e.g. scales, blood pressure monitors)<br>Smart smoke monitors and alarms (e.g. Kepler, Birdi)<br>Smart kitchen appliances (e.g. Fridge, oven, kettle, scales, vacuum cleaner)<br>Smart Glasses (e.g. Ray-Ban Meta, Amazon Echo Frames, Viture Pro XR Smart Glasses)</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of these TV streaming services do you use?</div>
+    <div class="answer-value">Netflix<br>Amazon Prime Video<br>Disney+<br>HBO Max<br>Peacock<br>Paramount+<br>Hulu<br>Apple TV+<br>Discovery+<br>ESPN+<br>Tubi</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following head-mounted devices do you own?</div>
+    <div class="answer-value">Ray-Ban Meta</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you use any of the follow video streaming devices on your tv?</div>
+    <div class="answer-value">Roku<br>Amazon Fire TV Stick<br>Apple TV</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following do you actively use for 3D scanning or depth capture (at least once a month)? (Select all that apply)</div>
+    <div class="answer-value">iPhone or iPad (e.g. scanning with Polycam, Scaniverse)</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following smartwatches, fitness trackers, or smart rings do you wear or use at least 4 days a week? (Select all that apply)</div>
+    <div class="answer-value">Apple Watch<br>Fitbit / fitness tracker</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following action or 360 cameras do you own?</div>
+    <div class="answer-value">GoPro Hero series<br>Other</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">As part of your professional work, which platform(s) do you use to access AI models via API? (Select all that apply)</div>
+    <div class="answer-value">Google Cloud Marketplace<br>Direct API from Google<br>Direct API from OpenAI</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">As part of your professional work, which AI models do you access via API? (Select all that apply)</div>
+    <div class="answer-value">GPT (OpenAI)<br>Gemini (Google)</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">As part of your professional work, do you integrate AI or ML models via API?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How often a week do you use Ai or tools that use Ai as part of your work</div>
+    <div class="answer-value">Multiple times every day</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which if any of these open source tools do you use?</div>
+    <div class="answer-value">Blender</div>
+  </div>
+  <div class="answer-icons"><span class="answer-info">&#9432;</span></div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Would you be willing to be trained to remotely control a robot using a VR headset or gamepad?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which brand of tea do you use or have you used most recently?</div>
+    <div class="answer-value">Tetley<br>Kempston<br>Other</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following types of alcohol do you tend to purchase/drink on a regular basis?</div>
+    <div class="answer-value">Craft beer<br>Lager<br>Traditional ales<br>Cider<br>Wine<br>Sparkling wine<br>Whisky/Bourbon<br>Brandy/Cognac<br>Gin<br>Rum<br>Vodka<br>Tequila<br>Liqueurs<br>Other spirit</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following types of soft drink do you tend to purchase/drink on a regular basis?</div>
+    <div class="answer-value">Standard carbonated soft drinks (e.g. Fanta; Coca Cola)<br>Diet/Zero/Low sugar carbonated soft drinks (e.g. Coke Zero; Pepsi Max)<br>Fruit juice/Smoothies<br>Still bottled water<br>Sparkling bottled water<br>Flavoured/Vitamin water<br>Energy drinks (e.g. Red Bull; Monster)<br>Still fruit drinks (e.g. Ice Tea; Oasis)<br>Squash/Cordials<br>Premium soft drinks (e.g. Bottlegreen; Appletiser; Shloer)<br>Other<br>Coffee<br>Tea</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following types of alcohol do you purchase regularly?</div>
+    <div class="answer-hint">Please only select the types of alcohol that you would purchase at the grocery store, not at a bar</div>
+    <div class="answer-value">Beer (incl. lager, ale, etc.)<br>Whiskey<br>Vodka<br>Rum<br>Gin<br>Brandy<br>Red Wine<br>White Wine<br>Tequila<br>Cider<br>Other</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How often (on average) do you shop online?</div>
+    <div class="answer-value">About once per week</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How often (on average) do you purchase clothing online?</div>
+    <div class="answer-hint">Please only consider purchases of new clothing items, but include accessories and footwear.</div>
+    <div class="answer-value">About once a month</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How often (on average) do you purchase your groceries online?</div>
+    <div class="answer-value">About once per week</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How frequently (on average) do you purchase cheese, chocolate, and tea as part of your online shopping (though not necessarily in the same shop)?</div>
+    <div class="answer-value">About once per week</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you own more than two fashion items that cost over £200?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Are you the main (or shared) grocery shopper for the food that your household eats?</div>
+    <div class="answer-value">Yes</div>
+  </div>
+</div>
+
+<div class="section-heading">Online Shopping</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following shopping memberships are you a part of?</div>
+    <div class="answer-value">Amazon Prime<br>Walmart+<br>Sams Club<br>Other</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Please specify which of the following brands you are a consumer of?</div>
+    <div class="answer-value">Gucci<br>Michael Kors<br>Louis Vuitton<br>Stella McCartney<br>Longchamp<br>Bottega Veneta</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">On which of the following consumer review websites do you have a personal user account?</div>
+    <div class="answer-value">Amazon<br>TripAdvisor<br>Yelp<br>IMDB<br>Rotten Tomatoes<br>Other</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you have active subscriptions for any of the following categories?</div>
+    <div class="answer-value">Media (e.g. Gaming, Movies, Music, Books)<br>Software (e.g. Adobe, MS, cloud storage)<br>Finance (e.g. insurance, premium banking)<br>AI tools (e.g ChatGPT, Google Gemini)</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following high street fashion retailers are you a consumer of?</div>
+    <div class="answer-value">H&amp;M<br>Zara<br>Uniqlo</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following high street fashion retailers are you a consumer of?</div>
+    <div class="answer-value">H&amp;M<br>Zara<br>Uniqlo</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Please specify which of the following brands you are a consumer of?</div>
+    <div class="answer-value">Gucci<br>Michael Kors<br>Louis Vuitton<br>Stella McCartney<br>Longchamp<br>Bottega Veneta</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you have active subscriptions for any of the following categories?</div>
+    <div class="answer-value">Media (e.g. Gaming, Movies, Music, Books)<br>Software (e.g. Adobe, MS, cloud storage)<br>Finance (e.g. insurance, premium banking)<br>AI tools (e.g ChatGPT, Google Gemini)</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">When decisions are made about external suppliers/vendors used by your organization, which best describes your personal involvement?</div>
+    <div class="answer-value">I participate in evaluating supplier options or making supplier-related decisions</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following are part of your current work? Select all that apply.</div>
+    <div class="answer-value">Monitoring supplier/vendor performance<br>Internal operations or project work<br>Sales or customer-facing work</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How many years have you been doing this?</div>
+    <div class="answer-value">10 or more years</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">How would you describe your experience?</div>
+    <div class="answer-value">Regular hobbyist</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which GLP-1 medication(s) have you taken in the past 6 months? Select all that apply.</div>
+    <div class="answer-value">I'd prefer not to say</div>
+  </div>
+  <div class="answer-icons"><span class="answer-warn">!</span><span class="answer-flame">&#128293;</span></div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Where did you get your GLP-1 medication in the past 6 months? Select all that apply.</div>
+    <div class="answer-value">Prescribed by an online pharmacy or telehealth service</div>
+  </div>
+  <div class="answer-icons"><span class="answer-warn">!</span><span class="answer-flame">&#128293;</span></div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Do you currently own any of the following as a pet?</div>
+    <div class="answer-value">Dog<br>Cat<br>Fish<br>Bird</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">What music streaming services do you use regularly?</div>
+    <div class="answer-value">Spotify<br>Apple Music<br>YouTube Music</div>
+  </div>
+</div>
+
+<div class="section-heading">Lifestyle and interests</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of these areas do you have hands-on experience in? Select all that apply.</div>
+    <div class="answer-value">Home repair and DIY<br>Gardening, farming or outdoor skills</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">As part of your professional work, do you integrate AI or ML models via API?</div>
+    <div class="answer-value">No</div>
+  </div>
+  <span class="answer-flame">&#128293;</span>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following tools have you used? (Select all that apply)</div>
+    <div class="answer-value">None of these</div>
+  </div>
+</div>
+
+<div class="answer-card">
+  <div class="answer-check">&#10003;</div>
+  <div class="answer-body">
+    <div class="answer-question">Which of the following AI coding assistants do you use? (Select all that apply)</div>
+    <div class="answer-value">GitHub Copilot<br>Claude Code<br>Codex (OpenAI)<br>Gemini Code Assist</div>
+  </div>
+</div>
+
+
+
+</div>
+
+
+<!--========Script for Reading mode only========-->
+<script>
+const STORAGE_KEY = "readingPosition:" + location.pathname;
+const savedPosition = Number(localStorage.getItem(STORAGE_KEY)) || 0;
+
+const panel = document.getElementById("resumePanel");
+const status = document.getElementById("status");
+const progress = document.getElementById("progress");
+
+let restored = false;
+let saveTimer;
+
+function updateProgress() {
+  const maxScroll =
+    document.documentElement.scrollHeight - window.innerHeight;
+
+  const percent = maxScroll > 0
+    ? Math.min(100, (window.scrollY / maxScroll) * 100)
+    : 0;
+
+  progress.style.width = percent + "%";
+}
+
+function savePosition() {
+  if (!restored) return;
+
+  localStorage.setItem(STORAGE_KEY, window.scrollY);
+  status.textContent = "✓ Reading position saved automatically";
+  updateProgress();
+}
+
+window.addEventListener("scroll", () => {
+  updateProgress();
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(savePosition, 200);
+}, { passive: true });
+
+window.addEventListener("pagehide", savePosition);
+
+if (savedPosition > 0) {
+  panel.hidden = false;
+  status.textContent = "Previous reading position found.";
+
+  document.getElementById("resume").onclick = () => {
+    panel.hidden = true;
+    restored = true;
+    window.scrollTo(0, savedPosition);
+    updateProgress();
+    status.textContent = "✓ Resumed from your last position";
+  };
+
+  document.getElementById("restart").onclick = () => {
+    localStorage.removeItem(STORAGE_KEY);
+    panel.hidden = true;
+    restored = true;
+    window.scrollTo(0, 0);
+    updateProgress();
+    status.textContent = "Started from the beginning.";
+  };
+} else {
+  restored = true;
+}
+
+updateProgress();
+
+lientRect().top;
+
+        const data = {
+          index: index,
+          offset: offset,
+          savedAt: Date.now()
+        };
+
+        try {
+          localStorage.setItem(storageKey, JSON.stringify(data));
+        } catch (error) {
+          // Browser storage বন্ধ থাকলে পেজ স্বাভাবিকভাবে চলবে
+        }
+
+      // স্ক্রল হলে অল্প দেরিতে অবস্থান সংরক্ষণ
+      window.addEventListener("scroll", () => {
+        if (!readyToSave || !isSectionVisible()) return;
+
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(savePosition, 150);
+      }, { passive: true });
+
+      window.addEventListener("pagehide", savePosition);
+
+      // আগের অবস্থানে ফিরিয়ে নেওয়া
+      function restorePosition() {
+        const items = getReadingItems();
+
+        if (!savedPosition || !items.length) {
+          window.scrollTo({
+            top: section.getBoundingClientRect().top + window.scrollY,
+            behavior: "auto"
+          });
+          return;
+        }
+
+        const index = Math.max(
+          0,
+          Math.min(savedPosition.index || 0, items.length - 1)
+        );
+
+        const target = items[index];
+
+        // সংরক্ষিত লেখাটিকে আগের স্ক্রিন অবস্থানে আনা
+        const targetY =
+          window.scrollY +
+          target.getBoundingClientRect().top -
+          (savedPosition.offset || 0);
+
+        window.scrollTo({
+          top: Math.max(0, targetY),
+          behavior: "auto"
+        });
+      }
+
+      // Resume এবং Start Over সবসময় দেখাবে
+      controls.hidden = false;
+      
+      // আগে থেকে অবস্থান থাকলে Resume-এর অপেক্ষায় থাকবে
+      // না থাকলে নতুন অবস্থান সংরক্ষণ শুরু করবে
+      readyToSave = !(
+      savedPosition &&
+      Number.isInteger(savedPosition.index) &&
+      savedPosition.index >= 0
+      );
+
+      resumeBtn.addEventListener("click", () => {
+        readyToSave = true;
+        controls.hidden = true;
+
+        requestAnimationFrame(() => {
+          restorePosition();
+          requestAnimationFrame(savePosition);
+        });
+      });
+
+      startOverBtn.addEventListener("click", () => {
+        try {
+          localStorage.removeItem(storageKey);
+        } catch (error) {
+          // Storage unavailable
+        }
+
+        savedPosition = null;
+        readyToSave = true;
+        controls.hidden = true;
+
+        window.scrollTo({
+          top: section.getBoundingClientRect().top + window.scrollY,
+          behavior: "auto"
+        });
+
+        requestAnimationFrame(savePosition);
+      });
+  </script>
+</body>
+</html>t>
+</body>
+</html>
